@@ -6,6 +6,10 @@ http://www.tooplate.com/view/2105-input
 	
 */
 
+.logo {
+  width:50%
+}
+
 .creat_account{
 /*  margin-left: 35%;*/
 }
@@ -148,7 +152,7 @@ ul.tm-home-list:not(.browser-default) {
 }
 
 #login {
-  background-image: url(../img/stonks.jpg);
+  background-image: url(../img/pinkcloud.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -191,6 +195,7 @@ ul.tm-home-list:not(.browser-default) {
 
 .tm-bg-black {
   background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
 }
 
 .tm-form-block {
@@ -599,5 +604,13 @@ input[type="email"]:not(.browser-default).tm-input-white-bg {
 
   .tm-mt-big {
     margin-top: 80px;
+  }
+
+  divLineLogin {
+    color: black;
+  }
+
+  createAccountButton {
+
   }
 }
