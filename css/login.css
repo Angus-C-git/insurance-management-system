@@ -610,7 +610,11 @@ input[type="email"]:not(.browser-default).tm-input-white-bg {
     color: black;
   }
 
-  createAccountButton {
+  newBox {
+    height: 5000px;
+  }
 
+  button {
+    /*border-radius:200px;*/
   }
 }
