@@ -11,6 +11,34 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/materialize.min.css">
     <link rel="stylesheet" href="css/login.css">
+
+
+    <script src="/__/firebase/6.4.2/firebase-app.js"></script>
+    <script src="/__/firebase/6.4.1/firebase-auth.js"></script>
+    <script src="/__/firebase/6.4.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+
+
+    <script>
+        //NOTE REMOVE THIS ONCE DEPLOYED ON FIREBASE
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCVAWE9Z6gnOQX1M0aDiolKLWw3n8dsZOU",
+            authDomain: "insurancesystem-6eddd.firebaseapp.com",
+            databaseURL: "https://insurancesystem-6eddd.firebaseio.com",
+            projectId: "insurancesystem-6eddd",
+            storageBucket: "insurancesystem-6eddd.appspot.com",
+            messagingSenderId: "628284186442",
+            appId: "1:628284186442:web:cc9956825d72c13c"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="js/signup.js"></script>
 </head>
 
 <body id="register">
@@ -18,14 +46,13 @@
         <div class="row">
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                 <header class="mb-5">
-                    <h3 class="mt-0 white-text">Sign-up Form</h3>
-                    <p class="grey-text mb-4">Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-                    <p class="grey-text">Vestibulum neque neque, porttitor quis lacinia eu, iaculis id dui. Mauris quis velit lectus.
-                    </p>
+                    <h3 class="mt-0 white-text">Sign-up</h3>
+                    <p class="grey-text mb-4"></p>
+                    <p class="grey-text"></p>
                 </header>
             </div>
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                <form action="" method="post" class="tm-signup-form">
+                <div class="tm-signup-form">
                     <div class="input-field">
                         <input placeholder="Username" id="username" name="username" type="text" class="validate">
                     </div>
@@ -37,14 +64,10 @@
                     </div>
                     <div class="input-field">
                         <input placeholder="Email" id="email" name="email" type="email" class="validate">
-                    </div>
-                    <div class="input-field">
-                        <input placeholder="Phone" id="phone" name="phone" type="tel" class="validate">
-                    </div>
                     <div class="text-right mt-4">
-                        <button type="submit" class="waves-effect btn-large btn-large-white px-4 tm-border-radius-0">Sign Up</button>
+                        <button type="submit" class="waves-effect btn-large btn-large-white px-4 tm-border-radius-0" onclick="signUp()">Sign Up</button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
         <footer class="row tm-mt-big mb-3">
