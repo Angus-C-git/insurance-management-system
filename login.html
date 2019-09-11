@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/materialize.min.css">
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/basics.css">
 
     <script src="/__/firebase/6.4.2/firebase-app.js"></script>
     <script src="/__/firebase/6.4.1/firebase-auth.js"></script>
@@ -43,8 +44,24 @@
 </head>
 
 <body id="login">
-    <div class="logo" style="position:absolute; margin-top:-225px; margin-left:12px;">
-        <img src="img/AllInsureWhiteTheme.png" alt="logoAllInsure" style="width:200px;height:100px;"></img>
+    <div class="navBar">
+            <table class="navBar">
+                <tr class="trNav">
+                    <th class="navLogo thNav">
+                        <img src="img/AllInsureDarkTheme.png" alt="logoAllInsure" class="Logo"/>
+                    </th>
+                    <td>
+                        <table>
+                            <tr class="trNav">
+                                <th class="thNav"><button class="navButton">Home</button></th>
+                                <th class="thNav"><button class="navButton">About Us</button></th>
+                                <th class="thNav"><button class="navButton">Login</button></th>
+                                <th class="thNav"><button class="navButton">Staff Login</button></th>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
     </div>
     <div class="container">
         <div class="row tm-register-row tm-mb-35">
@@ -73,8 +90,8 @@
         <!--<div class="row">
             <div class="creat_account text-center">
                 <a  href="register.html" class="waves-effect btn-large btn-large-white px-4 black-text rounded-0">Create New Account</a>
-            </div>-->
-        </div>
+            </div>
+        </div>-->
 
         <footer class="row tm-mt-big mb-3">
         </footer>

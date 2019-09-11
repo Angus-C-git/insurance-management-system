@@ -6,6 +6,8 @@ http://www.tooplate.com/view/2105-input
 	
 */
 
+
+
 .logo {
   width:50%
 }
@@ -154,9 +156,7 @@ ul.tm-home-list:not(.browser-default) {
 
 #login {
   background-image: url(../img/loginBG.jpg);
-  background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
 }
 
 #register .container {
