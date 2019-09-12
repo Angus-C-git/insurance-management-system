@@ -66,8 +66,8 @@
 }
 
 .footerTD {
-    width: 15%;
-    padding: 20px;
+    width: 10%;
+    padding: 5px;
 }
 
 .footerTR {
@@ -79,9 +79,15 @@
 }
 
 .footerLogo {
-    height: 15%;
-    width: 25%;
+    height: 40px;
+    width: 100px;
+    padding: -10px;
 }
 .footerLogoAlign {
     text-align: right;
+    width: 15%;
+}
+.footerText {
+    font-size: 8px;
+    padding: -30px;
 }

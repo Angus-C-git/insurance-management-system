@@ -161,8 +161,19 @@ ul.tm-home-list:not(.browser-default) {
   background-position: center top;
 }
 
+#staffLogin {
+  background-image: url(../img/dash-bg-02.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+
 #register .container {
   max-width: 900px;
+}
+
+.staffContainer {
+  margin-top: 10%;
 }
 
 #application .container {
