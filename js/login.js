@@ -12,12 +12,13 @@ function loginUser(){
         var errorMessage = error.message;
 
         if (errorCode === 'auth/wrong-password') {
+            //TODO
             alert('Wrong password.');
             return;
         } else {
+            //TODO
             alert(errorMessage);
         } console.log(errorMessage);
-        return;
 
     }).then(function () {
         firebase.auth().onAuthStateChanged(function(user) {
