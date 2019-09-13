@@ -14,7 +14,7 @@ function checkAuthState(nonAccessPage) {
     });
 }
 
-//Logout Function -> Ends user session on database end and then redirects to home page (hiding logged in links)
+//Logout Function -> Ends user session
 function Logout(){
     firebase.auth().signOut().then(function() {
         console.log("signed out");
