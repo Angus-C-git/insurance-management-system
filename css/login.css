@@ -1,12 +1,8 @@
-/*
-
-Template 2105 Input
-
-http://www.tooplate.com/view/2105-input
-	
-*/
 
 
+.errorMessage{
+  display: none;
+}
 
 .logo {
   width:50%
@@ -631,4 +627,5 @@ input[type="email"]:not(.browser-default).tm-input-white-bg {
   button {
     /*border-radius:200px;*/
   }
+
 }

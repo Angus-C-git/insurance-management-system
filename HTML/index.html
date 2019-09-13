@@ -12,10 +12,30 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/tooplate-infinite-loop.css" />
       <link rel="stylesheet" href="../css/basics.css"/>
-<!--
-Tooplate 2117 Infinite Loop
-https://www.tooplate.com/view/2117-infinite-loop
--->
+
+      <script src="../js/auth.js"></script>
+      <script src="/__/firebase/6.4.2/firebase-app.js"></script>
+      <script src="/__/firebase/6.4.1/firebase-auth.js"></script>
+      <script src="/__/firebase/6.4.1/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+
+      <script>
+          //NOTE REMOVE THIS ONCE DEPLOYED ON FIREBASE
+          // Your web app's Firebase configuration
+          var firebaseConfig = {
+              apiKey: "AIzaSyCVAWE9Z6gnOQX1M0aDiolKLWw3n8dsZOU",
+              authDomain: "insurancesystem-6eddd.firebaseapp.com",
+              databaseURL: "https://insurancesystem-6eddd.firebaseio.com",
+              projectId: "insurancesystem-6eddd",
+              storageBucket: "insurancesystem-6eddd.appspot.com",
+              messagingSenderId: "628284186442",
+              appId: "1:628284186442:web:cc9956825d72c13c"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+      </script>
+
+      <script src="/js/auth.js"></script>
 
   </head>
   <body>
@@ -377,7 +397,7 @@ https://www.tooplate.com/view/2117-infinite-loop
     <script src="js/jquery.singlePageNav.min.js"></script>     
     <script src="js/bootstrap.min.js"></script> 
     <script>
-
+        checkAuthState();
       function getOffSet(){
         var _offset = 450;
         var windowHeight = window.innerHeight;
@@ -441,6 +461,7 @@ https://www.tooplate.com/view/2117-infinite-loop
       };
       
       $(function(){
+
         // Hero Section - Background Parallax
         background_image_parallax($(".tm-parallax"), 0.30, false);
         background_image_parallax_2($("#contact"), 0.80);   

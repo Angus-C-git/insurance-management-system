@@ -12,9 +12,8 @@ function loginUser(){
         var errorMessage = error.message;
 
         if (errorCode === 'auth/wrong-password') {
-            //TODO
-            alert('Wrong password.');
-            return;
+            //TODO show wrong password element
+            document.getElementById('errorMessage').classList.remove('errorMessage');
         } else {
             //TODO
             alert(errorMessage);

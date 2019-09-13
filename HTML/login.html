@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/materialize.min.css">
-    <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../css/basics.css">
+    <link rel="stylesheet" href="../css/login.css">
 
     <script src="/__/firebase/6.4.2/firebase-app.js"></script>
     <script src="/__/firebase/6.4.1/firebase-auth.js"></script>
@@ -72,12 +72,12 @@
                     <div class="input-field mb-5">
                         <input placeholder="Password" id="password" name="password" type="password" class="validate">
                     </div>
-                    <div class="errorMessage">
+                    <div id="errorMessage" class="errorMessage">
                         <p style="  color: red;
                                     font-size: 15px;
                                     padding: 0px;
                                     margin-top: -55px;
-                                    margin-left: -70px;">Username and/or password is incorrect!</>
+                                    margin-left: -70px;">Username and/or password is incorrect!</p>
                     </div>
                     <div class="tm-flex-lr">
                         <a href="#" class="white-text small">Forgot Password?</a>
