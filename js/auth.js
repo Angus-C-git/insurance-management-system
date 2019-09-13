@@ -15,7 +15,7 @@ function checkAuthState(nonAccessPage) {
 }
 
 //Logout Function -> Ends user session
-function Logout(){
+function logout(){
     firebase.auth().signOut().then(function() {
         console.log("signed out");
         window.location.reload(); //REDIRECT HOME

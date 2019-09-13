@@ -5,7 +5,9 @@ Template 2105 Input
 http://www.tooplate.com/view/2105-input
 	
 */
-
+.errorMessage{
+  display: none;
+}
 
 
 .logo {

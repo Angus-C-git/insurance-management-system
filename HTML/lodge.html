@@ -55,7 +55,7 @@
                     <h3>Application</h3>
                     <p class="tm-form-description">Please lodge the following details in accordance with the insurance claim you are making.</p>
                 </header>
-                <form action="" method="post" enctype="multipart/form-data" class="tm-form-white tm-font-big">
+                <div class="tm-form-white tm-font-big">
                     <div class="tm-bg-white tm-form-pad-big">
                         <div class="form-group mb-5">
                             <label for="name" class="black-text mb-4 big">Your Full Name</label>
@@ -72,7 +72,7 @@
                         </div>
                         <div class="row">
                             <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12 pl-0 tm-form-group-2-col tm-form-group-2-col-l">
-                                <label for="city" class="black-text mb-4 big">City</label>
+                                <label class="black-text mb-4 big">City</label>
                                 <select name="city">
                                     <option value="-">Your City</option>
                                     <option value="Bangkok">Bangkok</option>
@@ -82,13 +82,13 @@
                                 </select>
                             </div>
                             <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12 pr-0 tm-form-group-2-col tm-form-group-2-col-r">
-                                <label for="zipcode" class="black-text mb-4 big">Zip Code</label>
+                                <label for="zipcode" class="black-text mb-4 big">Post Code</label>
                                 <input id="zipcode" name="zipcode" type="text" class="validate tm-input-white-bg mb-4">
                             </div>
                         </div>
 
                         <div class="form-group mb-5">
-                            <label for="gender" class="black-text mb-4 big">Gender</label>
+                            <label class="black-text mb-4 big">Gender</label>
                             <div>
                                 <label class="mr-4">
                                     <input class="with-gap" name="gender" type="radio" value="m" />
@@ -103,7 +103,7 @@
 
                         <div class="row">
                             <div class="form-group mb-2 col-xl-6 col-lg-6 col-md-6 col-12 pl-0 tm-form-group-2-col tm-form-group-2-col-l">
-                                <label for="expectedsalary" class="black-text mb-4 big">Expected Salary</label>
+                                <label class="black-text mb-4 big">Expected Salary</label>
                                 <select name="expectedsalary">
                                     <option value="-">Select</option>
                                     <option value="1000">$1,000 - 1,999</option>
@@ -112,7 +112,7 @@
                                 </select>
                             </div>
                             <div class="form-group mb-2 col-xl-6 col-lg-6 col-md-6 col-12 pr-0 tm-form-group-2-col tm-form-group-2-col-r">
-                                <label for="file" class="black-text mb-4 big">Attach a file</label>
+                                <label class="black-text mb-4 big">Attach a file</label>
                                 <div class="file-field input-field">
                                     <div class="btn btn-white">
                                         <span>Browse...</span>
@@ -134,7 +134,7 @@
                     <div class="text-center mt-5">
                         <button type="submit" class="waves-effect btn-large btn-large-white">Submit</button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
         <footer class="row tm-mt-big mb-3">
