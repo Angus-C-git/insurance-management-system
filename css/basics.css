@@ -71,8 +71,13 @@
 /*FOOTER*/
 .footer {
     background-color: black;
-    align-content: center;
-    color: #38B;
+    color: #38B !important;
+    position: absolute !important;
+    bottom: 0px !important;
+    width:100%;
+    font-size: 18px;
+    height: 70px;
+    max-height: 70px;
 }
 
 .footerTD {
@@ -99,6 +104,5 @@
 }
 .footerText {
     font-size: 8px;
-    padding: -30px;
     color: white;
 }

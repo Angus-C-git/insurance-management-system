@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="../css/materialize.min.css">
     <link rel="stylesheet" href="../css/basics.css">
     <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/tooplate-infinite-loop.css" />
+
 
     <script src="/__/firebase/6.4.2/firebase-app.js"></script>
     <script src="/__/firebase/6.4.1/firebase-auth.js"></script>
@@ -43,6 +45,7 @@
 </head>
 
 <body id="login">
+<section>
     <div class="navBar">
         <span class="navSpanLogo">
             <img src="../img/AllInsureDarkTheme.png" alt="logoAllInsure" class="Logo"/>
@@ -84,19 +87,8 @@
             </div>
 
         </div>
-
-        <footer class="row tm-mt-big mb-3">
-        </footer>
     </div>
-
-    <script src="../js/jquery-3.2.1.slim.min.js"></script>
-    <script src="../js/materialize.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('select').formSelect();
-        });
-    </script>
-
+</section>
     <div class="footer">
         <table class="footerTable">
             <tr class="footerTR">
@@ -123,6 +115,14 @@
             </tr>
         </table>
     </div>
+
+    <script src="../js/jquery-3.2.1.slim.min.js"></script>
+    <script src="../js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('select').formSelect();
+        });
+    </script>
 </body>
 
 </html>
