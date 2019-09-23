@@ -1,3 +1,17 @@
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCVAWE9Z6gnOQX1M0aDiolKLWw3n8dsZOU",
+    authDomain: "insurancesystem-6eddd.firebaseapp.com",
+    databaseURL: "https://insurancesystem-6eddd.firebaseio.com",
+    projectId: "insurancesystem-6eddd",
+    storageBucket: "insurancesystem-6eddd.appspot.com",
+    messagingSenderId: "628284186442",
+    appId: "1:628284186442:web:baedef4f4f5ebe53192bb3"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+
 function checkAuthState(nonAccessPage) {
     firebase.auth().onAuthStateChanged(function(user) {
 

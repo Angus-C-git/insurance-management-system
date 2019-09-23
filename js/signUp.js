@@ -1,7 +1,7 @@
 //Signup
 
 
-var firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyCVAWE9Z6gnOQX1M0aDiolKLWw3n8dsZOU",
     authDomain: "insurancesystem-6eddd.firebaseapp.com",
     databaseURL: "https://insurancesystem-6eddd.firebaseio.com",
@@ -18,6 +18,16 @@ let db;
 
 function signUp() {
     db = firebase.firestore();
+    logout();
+    //Logout Function -> Ends user session if new user is being created from a logged in acc
+    function logout(){
+        firebase.auth().signOut().then(function() {
+            console.log("signed out");
+            //window.location.reload(); //REDIRECT HOME
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
 
     let email = document.getElementById('email').value;
     let password = document.getElementById('password2').value;
@@ -56,12 +66,13 @@ function loginNewSignUp(email, password) {
                 let docRef = db.collection('users').doc(userId);
                 docRef.set({email: email});
                 console.log("New usr created...");
-
                 console.log("login was a success");
-                window.location.replace("manage.html");
+
             }
         });
+
     });
+
 }
 
 function sendEmailVerification() {
@@ -71,6 +82,7 @@ function sendEmailVerification() {
         // [START_EXCLUDE]
         alert('Email Verification Sent!');
         // [END_EXCLUDE]
+        window.location.replace("manage.html"); //TODO work out where to locate this redirect
     });
     // [END sendemailverification]
 }

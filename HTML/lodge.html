@@ -12,31 +12,18 @@
     <link rel="stylesheet" href="../css/materialize.min.css">
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../css/basics.css">
+
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
+
     <script src="../js/auth.js"></script>
+    <script src="../js/claims.js"></script>
 
-    <script src="/__/firebase/6.4.2/firebase-app.js"></script>
-    <script src="/__/firebase/6.4.1/firebase-auth.js"></script>
-    <script src="/__/firebase/6.4.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
-
-    <script>
-        //NOTE REMOVE THIS ONCE DEPLOYED ON FIREBASE
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyCVAWE9Z6gnOQX1M0aDiolKLWw3n8dsZOU",
-            authDomain: "insurancesystem-6eddd.firebaseapp.com",
-            databaseURL: "https://insurancesystem-6eddd.firebaseio.com",
-            projectId: "insurancesystem-6eddd",
-            storageBucket: "insurancesystem-6eddd.appspot.com",
-            messagingSenderId: "628284186442",
-            appId: "1:628284186442:web:cc9956825d72c13c"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-    </script>
 </head>
 
 <body id="application">
+<!--
 <div class="navBar">
         <span class="navSpanLogo">
             <img src="../img/AllInsureDarkTheme.png" alt="logoAllInsure" class="Logo"/>
@@ -48,6 +35,7 @@
                 <li class="navLi navRadRight"><a href="stafflogin.html" class="navHREF"><button class="navButton" href="">Staff</button></a></li>
         </span>
 </div>
+-->
 <br/>
     <div class="container">
         <div class="row">
@@ -72,19 +60,13 @@
                             <input id="address2" name="address2" type="text" class="validate tm-input-white-bg mt-1">
                         </div>
                         <div class="row">
-                            <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12 pl-0 tm-form-group-2-col tm-form-group-2-col-l">
+                            <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12 pr-0 tm-form-group-2-col tm-form-group-2-col-r">
                                 <label class="black-text mb-4 big">City</label>
-                                <select name="city">
-                                    <option value="-">Your City</option>
-                                    <option value="Bangkok">Bangkok</option>
-                                    <option value="Yangon">Yangon</option>
-                                    <option value="Singapore">Singapore</option>
-                                    <option value="Tokyo">Tokyo</option>
-                                </select>
+                                <input id="city" name="city" type="text" class="validate tm-input-white-bg mb-4">
                             </div>
                             <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12 pr-0 tm-form-group-2-col tm-form-group-2-col-r">
-                                <label for="zipcode" class="black-text mb-4 big">Post Code</label>
-                                <input id="zipcode" name="zipcode" type="text" class="validate tm-input-white-bg mb-4">
+                                <label class="black-text mb-4 big">Post Code</label>
+                                <input id="postCode" name="postCode" type="text" class="validate tm-input-white-bg mb-4">
                             </div>
                         </div>
 
@@ -127,13 +109,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="message" class="black-text mb-4 big">Additional Message</label>
+                            <label for="message" class="black-text mb-4 big">Additional Incident Notes</label>
                             <textarea class="p-3" name="message" id="message" cols="30" rows="4"></textarea>
                         </div>
 
                     </div>
                     <div class="text-center mt-5">
-                        <button type="submit" class="waves-effect btn-large btn-large-white">Submit</button>
+                        <button onclick="writeClaim()" type="submit" class="waves-effect btn-large btn-large-white">Submit</button>
                     </div>
                 </div>
             </div>
