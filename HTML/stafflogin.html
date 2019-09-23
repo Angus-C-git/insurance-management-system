@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="../css/materialize.min.css">
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../css/basics.css">
+    <link rel="stylesheet" href="../css/tooplate-infinite-loop.css" />
+
 
     <script src="/__/firebase/6.4.2/firebase-app.js"></script>
     <script src="/__/firebase/6.4.1/firebase-auth.js"></script>
@@ -43,7 +45,8 @@
 
 </head>
 
-<body id="staffLogin" >
+<body id="staffLogin">
+<section>
 <div class="navBar">
         <span class="navSpanLogo">
             <img src="../img/AllInsureDarkTheme.png" alt="logoAllInsure" class="Logo"/>
@@ -74,36 +77,25 @@
         </div>
 
     </div>
-
-    <footer class="row tm-mt-big mb-3">
-    </footer>
 </div>
-
-<script src="../js/jquery-3.2.1.slim.min.js"></script>
-<script src="../js/materialize.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('select').formSelect();
-    });
-</script>
-
-<div class="footer" style="margin-bottom: 0;">
+</section>
+<div class="footer">
     <table class="footerTable">
         <tr class="footerTR">
             <td class="footerTD">
-                <a href="about.html">About</a>
+                <a href="about.html" class="footer">About</a>
             </td>
             <td class="footerTD">
-                <a href="contactus.html">Contact Us</a>
+                <a href="contactus.html" class="footer">Contact Us</a>
             </td>
             <td class="footerTD">
-                <a href="help.html">Help</a>
+                <a href="help.html" class="footer">Help</a>
             </td>
             <td class="footerTD">
-                <a href="sitemap.html">Site Map</a>
+                <a href="sitemap.html" class="footer">Site Map</a>
             </td>
             <td class="footerTD">
-                <a href="tandc.html">Terms & Conditions</a>
+                <a href="tandc.html" class="footer">Terms & Conditions</a>
             </td>
             <td class="footerLogoAlign">
                 <img src="../img/AllInsureDarkTheme.png" class="footerLogo" alt="AllInsureLogo"/>
@@ -113,6 +105,13 @@
         </tr>
     </table>
 </div>
+<script src="../js/jquery-3.2.1.slim.min.js"></script>
+<script src="../js/materialize.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('select').formSelect();
+    });
+</script>
 </body>
 
 </html>
