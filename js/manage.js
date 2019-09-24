@@ -17,6 +17,13 @@ function fetchClaimsStaff() {
                         let claimObjPre = claimData.data();
                         let claimObj = claimObjPre.claim;
                         console.log(claimObj.additionalInfo);
+                        document.getElementById('claimsInjectPoint').innerHTML += "<tr>" +
+                            "<td> " + claimData.id + "</td>"
+                            + "<td> " + claimObj.fullName + "</td>"
+                            + "<td> " + claimObj.email + "</td>"
+                            + "<td> " + claimObj.type + "</td>"
+                            + "<td> " + claimObj.postCode + "</td>"; //TODO
+
                     })
                 })
             });

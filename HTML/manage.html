@@ -97,7 +97,7 @@
                                 </td>
                             </tr>
                             <tr class="searchSubmitLine">
-                                <td><br/><button class="submitButton">Search</button></td>
+                                <td><br/><button onclick="fetchClaimsStaff()" class="submitButton">Search</button></td>
                             </tr>
                         </table>
 
@@ -115,29 +115,15 @@
                                 <a href="products.html" class="tm-link-black">View All</a>
                             </div>
                         </div>
-                        <ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
-                            <li class="tm-list-group-item">
-                                Donec eget libero
-                            </li>
-                            <li class="tm-list-group-item">
-                                Nunc luctus suscipit elementum
-                            </li>
-                            <li class="tm-list-group-item">
-                                Maecenas eu justo maximus
-                            </li>
-                            <li class="tm-list-group-item">
-                                Pellentesque auctor urna nunc
-                            </li>
-                            <li class="tm-list-group-item">
-                                Sit amet aliquam lorem efficitur
-                            </li>
-                            <li class="tm-list-group-item">
-                                Pellentesque auctor urna nunc
-                            </li>
-                            <li class="tm-list-group-item">
-                                Sit amet aliquam lorem efficitur
-                            </li>
-                        </ol>
+                        <table id="claimsInjectPoint">
+                            <tr>
+                                <th class="idCol">ID</th>
+                                <th class="fullNameCol">Full Name</th>
+                                <th class="emailCol">E-mail</th>
+                                <th class="typeCol">Type</th>
+                                <th class="dateCol">Date</th>
+                            </tr>
+                        </table>
                     </div>
                 </div>
 
