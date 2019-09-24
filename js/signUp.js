@@ -15,7 +15,6 @@ firebase.initializeApp(firebaseConfig);
 
 let db;
 
-
 function signUp() {
     db = firebase.firestore();
     logout();
