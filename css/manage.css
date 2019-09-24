@@ -573,3 +573,23 @@ footer {
 #searchBox {
   width: 100%;
 }
+
+.idCol {
+  width: 15%;
+}
+
+.fullNameCol {
+  width: 15%
+}
+
+.emailCol {
+  width: 25%;
+}
+
+.typeCol {
+  width: 10%;
+}
+
+.dateCol {
+  width: 15%;
+}
