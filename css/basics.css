@@ -47,6 +47,8 @@
     /*background-color: #00b8d4;*/
     border: 0px solid #00b8d4;
     border-radius: 0px;
+    text-align-last: center;
+    text-align: center;
 }
 
 .navRadRight {
