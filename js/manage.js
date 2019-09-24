@@ -16,6 +16,7 @@ function fetchClaimsStaff() {
                     searchRoot.doc(doc.id).collection('claims').doc(claim.id).get().then(function (claimData) {
                         let claimObjPre = claimData.data();
                         let claimObj = claimObjPre.claim;
+                        let claimDate = claimObj.claimDate.toDate();
                         console.log(claimObj.additionalInfo);
                         document.getElementById('claimsInjectPoint').innerHTML += "<div class='tm-col tm-col-span'>" +
                             "<div class='bg-white tm-block h-100 reduceSize'>" +
@@ -23,7 +24,7 @@ function fetchClaimsStaff() {
                             "<tr>" +
                             "<td class='id'>" + claimData.id + "</td>" +
                             "<td class='centerRow'>" + claimObj.type + "</td>" +
-                            "<td class='ra id'>" + claimObj.claimDate.toDate() + "</td>" +//TODO
+                            "<td class='ra id'>" + claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes() + " </td>" +//TODO
                             "</tr>" +
                             "<tr>" +
                             "<td colspan='3' rowspan='2' class='centerRow name'>" + claimObj.fullName + "</td>" +
