@@ -2,6 +2,7 @@
 .navBar {
     border-radius: 10px;
     border: 0px solid black;
+    top: 0px;
     margin-left: 4%;
     margin-right: 4%;
 }
@@ -11,7 +12,7 @@
     overflow: hidden;
     float: left;
     list-style-type: none;
-    width:21.7%;
+    width:17%;
     border-right: 1px solid white;
     box-shadow: 0 3px 2px 0 #38B;
 }

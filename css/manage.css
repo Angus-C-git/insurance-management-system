@@ -131,17 +131,19 @@ a:focus {
 }
 
 .tm-col {
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .tm-col-big {
-  width: 39%;
+  width: 30%;
 }
 
 .tm-col-small {
   width: 21.95%;
+}
+
+.tm-col-span {
+  width: 100%;
 }
 
 .tm-link-black {
@@ -538,4 +540,36 @@ footer {
   .navbar-collapse {
     top: 107px;
   }
+}
+
+.selectSearch {
+  width: 100%;
+  height: 50px;
+  font-size: 30px;
+  border: 1px solid grey;
+}
+
+.textSearch {
+  border: 0px;
+  width: 80%;
+}
+
+.selectOptions {
+  border: 0px;
+  width: 19%;
+  border-left: 0.5px solid lightgray;
+}
+
+.searchSubmitLine {
+  text-align: right;
+}
+
+.submitButton {
+  width: 15%;
+  height: 50px;
+  font-size: 25px;
+}
+
+#searchBox {
+  width: 100%;
 }
