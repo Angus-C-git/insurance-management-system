@@ -44,6 +44,7 @@ function writeClaim() {
                 docRef.set({
                     claim: {
                         type: type,
+                        claimDate: firebase.firestore.FieldValue.serverTimestamp(),
                         fullName: fullName,
                         email: email,
                         mailingAddress1: mailingAddress1,
