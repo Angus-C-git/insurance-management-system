@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="../css/fullcalendar.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/manage.css">
+    <link rel="stylesheet" href="../css/basics.css"/>
+
 
     <script src="../js/auth.js"></script>
     <script src="../js/manage.js"></script>
@@ -42,103 +44,70 @@
 <div class="navBar">
         <span class="navSpanLogo">
             <img src="../img/AllInsureDarkTheme.png" alt="logoAllInsure" class="Logo"/>
-        </span>
-    <span class="navSpan">
-                <li class="navLi"><a href="index.html" class="navHREF"><button class="navButton">Home</button></a></li>
-                <li class="navLi"><a href="about.html" class="navHREF"><button class="navButton" href="">About Us</button></a></li>
-                <li class="navLi"><a href="login.html" class="navHREF"><button class="navButton" href="">Login/Sign Up</button></a></li>
-                <li class="navLi navRadRight"><a href="stafflogin.html" class="navHREF"><button class="navButton" href="">Staff</button></a></li>
+            <li class="navLi"><a href="index.html" class="navHREF"><button class="navButton">Home</button></a></li>
+            <li class="navLi"><a href="about.html" class="navHREF"><button class="navButton" href="">About Us</button></a></li>
+
+            <li class="navLi"><a href="lodge.html" class="navHREF"><button class="navButton">Lodge</button></a></li>
+            <li class="navLi"><a href="manage.html" class="navHREF"><button class="navButton">Manage</button></a></li>
+            <li class="navLi"><a class="navHREF"><button class="navButton" onclick="logout()">Logout</button></a></li>
+
         </span>
 </div>
 <br/>
     <div class="" id="home">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="navbar navbar-expand-xl navbar-light bg-light">
-                        <a class="navbar-brand" href="#">
-                            <i class="fas fa-3x fa-tachometer-alt tm-site-icon"></i>
-                            <h1 class="tm-site-title mb-0">Dashboard</h1>
-                        </a>
-                        <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
 
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav mx-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="#">Dashboard
-                                        <span class="sr-only">(current)</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        Reports
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#">Daily Report</a>
-                                        <a class="dropdown-item" href="#">Weekly Report</a>
-                                        <a class="dropdown-item" href="#">Yearly Report</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="products.html">Products</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href="accounts.html">Accounts</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        Settings
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#">Profile</a>
-                                        <a class="dropdown-item" href="#">Billing</a>
-                                        <a class="dropdown-item" href="#">Customize</a>
-                                    </div>
-                                </li>
-                            </ul>
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link d-flex" href="login.html">
-                                        <i class="far fa-user mr-2 tm-logout-icon"></i>
-                                        <span>Logout</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
             <!-- row -->
             <div class="row tm-content-row tm-mt-big">
                 <div class="tm-col tm-col-big">
                     <div class="bg-white tm-block h-100">
-                        <h2 class="tm-block-title">Latest Hits</h2>
+                        <h2 class="tm-block-title">Heat Map For Claims Over Week</h2>
                         <canvas id="lineChart"></canvas>
                     </div>
                 </div>
                 <div class="tm-col tm-col-big">
                     <div class="bg-white tm-block h-100">
-                        <h2 class="tm-block-title">Performance</h2>
+                        <h2 class="tm-block-title"></h2>
                         <canvas id="barChart"></canvas>
                     </div>
                 </div>
-                <div class="tm-col tm-col-small">
+                <div class="tm-col tm-col-big">
                     <div class="bg-white tm-block h-100">
-                        <canvas id="pieChart" class="chartjs-render-monitor"></canvas>
+                        <h2 class="tm-block-title"></h2>
+                        <canvas id="barChart"></canvas>
+                    </div>
+                </div>
+                <div class="tm-col tm-col-span">
+                    <div class="bg-white tm-block h-100">
+                        <table id="searchBox">
+                            <tr>
+                                <th> Search Criteria<br/><br/></th>
+                            </tr>
+                            <tr>
+                                <td class="selectSearch">
+                                    <input type="text" class="textSearch">
+                                        <select class="selectOptions">
+                                            <option>ID</option>
+                                            <option>E-mail</option>
+                                            <option>Full Name</option>
+                                            <option>Date</option>
+                                        </select>
+                                    </input>
+                                </td>
+                            </tr>
+                            <tr class="searchSubmitLine">
+                                <td><br/><button class="submitButton">Search</button></td>
+                            </tr>
+                        </table>
+
                     </div>
                 </div>
 
-                <div class="tm-col tm-col-big">
+                <div class="tm-col tm-col-span">
                     <div class="bg-white tm-block h-100">
                         <div class="row">
                             <div class="col-8">
-                                <h2 class="tm-block-title d-inline-block">Top Product List</h2>
+                                <h2 class="tm-block-title d-inline-block">View All</h2>
 
                             </div>
                             <div class="col-4 text-right">
@@ -170,37 +139,7 @@
                         </ol>
                     </div>
                 </div>
-                <div class="tm-col tm-col-big">
-                    <div class="bg-white tm-block h-100">
-                        <h2 class="tm-block-title">Calendar</h2>
-                        <div id="calendar"></div>
-                        <div class="row mt-4">
-                            <div class="col-12 text-right">
-                                <a href="#" class="tm-link-black">View Schedules</a>
-                            </div>
-                        </div>
 
-                    </div>
-                </div>
-                <div class="tm-col tm-col-small">
-                    <div class="bg-white tm-block h-100">
-                        <h2 class="tm-block-title">Upcoming Tasks</h2>
-                        <ol class="tm-list-group">
-                            <li class="tm-list-group-item">List of tasks</li>
-                            <li class="tm-list-group-item">Lorem ipsum doloe</li>
-                            <li class="tm-list-group-item">Read reports</li>
-                            <li class="tm-list-group-item">Write email</li>
-                            
-                            <li class="tm-list-group-item">Call customers</li>
-                            <li class="tm-list-group-item">Go to meeting</li>
-                            <li class="tm-list-group-item">Weekly plan</li>
-                            <li class="tm-list-group-item">Ask for feedback</li>
-                            
-                            <li class="tm-list-group-item">Meet Supervisor</li>
-                            <li class="tm-list-group-item">Company trip</li>
-                        </ol>
-                    </div>
-                </div>
             </div>
             <footer class="row tm-mt-small">
                 <div class="col-12 font-weight-light">
