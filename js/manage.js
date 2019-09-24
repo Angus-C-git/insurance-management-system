@@ -23,7 +23,7 @@ function fetchClaimsStaff() {
                             "<tr>" +
                             "<td class='std id'>" + claimData.id + "</td>" +
                             "<td class='centerRow'>" + claimObj.type + "</td>" +
-                            "<td class='std ra id'>" + claimObj.claimDate.toDate() + "</td>" +//TODO
+                            "<td class='std ra id'>" + claimObj.claimDate.toDate() + "</td>" +
                             "</tr>" +
                             "<tr>" +
                             "<td colspan='3' rowspan='2' class='centerRow name'>" + claimObj.fullName + "</td>" +
