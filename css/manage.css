@@ -574,22 +574,38 @@ footer {
   width: 100%;
 }
 
-.idCol {
-  width: 15%;
+.manageBox {
+  width: 100%;
 }
 
-.fullNameCol {
-  width: 15%
+.manageBox.td {
+  max-width: 33%;
+  width: 33%;
+}
+.centerRow {
+  text-align: center;
+  padding-bottom: 5px;
 }
 
-.emailCol {
-  width: 25%;
+.ra {
+  text-align: right;
 }
 
-.typeCol {
-  width: 10%;
+.manageButton {
+  height: 50px;
+  width: 90px;
+  font-weight: bold;
+  border-radius: 3px;
+}
+.name {
+  font-weight: bold;
+  font-size: 30px;
+}
+.id {
+  color: grey;
 }
 
-.dateCol {
-  width: 15%;
+.reduceSize {
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
