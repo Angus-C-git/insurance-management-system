@@ -14,30 +14,13 @@
     <link rel="stylesheet" href="../css/manage.css">
     <link rel="stylesheet" href="../css/basics.css"/>
 
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
 
     <script src="../js/auth.js"></script>
     <script src="../js/manage.js"></script>
 
-    <script src="/__/firebase/6.4.2/firebase-app.js"></script>
-    <script src="/__/firebase/6.4.1/firebase-auth.js"></script>
-    <script src="/__/firebase/6.4.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
-
-    <script>
-        //NOTE REMOVE THIS ONCE DEPLOYED ON FIREBASE
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyCVAWE9Z6gnOQX1M0aDiolKLWw3n8dsZOU",
-            authDomain: "insurancesystem-6eddd.firebaseapp.com",
-            databaseURL: "https://insurancesystem-6eddd.firebaseio.com",
-            projectId: "insurancesystem-6eddd",
-            storageBucket: "insurancesystem-6eddd.appspot.com",
-            messagingSenderId: "628284186442",
-            appId: "1:628284186442:web:cc9956825d72c13c"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-    </script>
 </head>
 
 <body id="reportsPage">
@@ -54,6 +37,7 @@
         </span>
 </div>
 <br/>
+<br>
     <div class="" id="home">
         <div class="container">
 
@@ -96,7 +80,7 @@
                                 </td>
                             </tr>
                             <tr class="searchSubmitLine">
-                                <td><br/><button class="submitButton">Search</button></td>
+                                <td><br/><button onclick="fetchClaimsStaff()" class="submitButton">Search</button></td>
                             </tr>
                         </table>
 
