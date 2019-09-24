@@ -1,12 +1,15 @@
 
-let db;
+const db = firebase.firestore();
+let injectPoint = document.getElementById('claimsInjectPoint');
+let uid;
 
 function fetchClaimsStaff() {
     //TODO staff validation
-    db = firebase.firestore();
-    document.getElementById('claimsInjectPoint').innerHTML = "";
+
+    injectPoint.innerHTML = "";
 
     let searchRoot = db.collection('users');
+
     console.log("attempting fetch...");
     searchRoot.get().then(function (querySnapshot) {
         console.log("query fired..");
@@ -19,27 +22,25 @@ function fetchClaimsStaff() {
                         let claimObj = claimObjPre.claim;
                         let claimDate = claimObj.claimDate.toDate();
                         console.log(claimObj.additionalInfo);
-                        document.getElementById('claimsInjectPoint').innerHTML += "<div class='tm-col tm-col-span'>" +
-                            "<div class='bg-white tm-block h-100 reduceSize'>" +
-                            "<table class='manageBox'>" +
-                            "<tr>" +
-                            "<td class='std id'>#" + claimData.id + "</td>" +
-                            "<td class='centerRow'>" + claimObj.type + "</td>" +
-                            "<td class='std ra id'>" + claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes() + " </td>" +//TODO
-                            "</tr>" +
-                            "<tr>" +
-                            "<td colspan='3' rowspan='2' class='centerRow name'>" + claimObj.fullName + "</td>" +
-                            "</tr>" +
-                            "<tr>" +
-                            "<td colspan='3'></td>" +
-                            "</tr>" +
-                            "<tr>" +
-                            "<td><button class='manageButton' onclick='inspect()'>Inspect</button></td>" +
-                            "<td colspan='1' class='centerRow'>" + claimObj.email + "</td>" +
-                            "<td class='ra'><button class='manageButton' onclick='resolve()'>Resolve</button></td>" +
-                            "</tr>" +
-                            "</table>" +
-                            "</div>" +
+                        injectPoint.innerHTML +=
+                            "<div class='tm-col tm-col-span'>" +
+                                "<div class='bg-white tm-block h-100 reduceSize'>" +
+                                    "<table class='manageBox'>" +
+                                        "<tr>" +
+                                            "<td class='std id'>#" + claimData.id + "</td>" +
+                                            "<td class='centerRow'>" + claimObj.type + "</td>" +
+                                            "<td class='std ra id'>" + claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes() + " </td>" +//TODO
+                                        "</tr><tr>" +
+                                            "<td colspan='3' rowspan='2' class='centerRow name'>" + claimObj.fullName + "</td>" +
+                                        "</tr><tr>" +
+                                            "<td colspan='3'></td>" +
+                                        "</tr><tr>" +
+                                            "<td><button class='manageButton' onclick='inspect()'>Inspect</button></td>" +
+                                            "<td colspan='1' class='centerRow'>" + claimObj.email + "</td>" +
+                                            "<td class='ra'><button class='manageButton' onclick='resolve()'>Resolve</button></td>" +
+                                        "</tr>" +
+                                    "</table>" +
+                                "</div>" +
                             "</div>";
 
                     })
@@ -51,11 +52,86 @@ function fetchClaimsStaff() {
         .catch(function (error) {
             console.log("Fetch failed :(, => ", error);
         });
-
-    //for (){} //TODO iterate through retrieved query
 }
 
 
 function fetchClaimsUser() {
+    document.getElementById('claimsInjectPoint').innerHTML = "";
 
+    firebase.auth().onAuthStateChanged(function(user) {
+        console.log("User UID: ", user.uid);
+        let searchRoot = db.collection('users').doc(user.uid);
+
+        console.log("query fired..");
+        searchRoot.collection('claims').get().then(function (data) {
+            data.forEach(function (claim) {
+                console.log(claim.data());
+                let claimObj = claim.data().claim;
+                let claimDate = claimObj.claimDate.toDate();
+                document.getElementById('claimsInjectPoint').innerHTML +=
+                    "<div class='tm-col tm-col-span'>" +
+                        "<div class='bg-white tm-block h-100 reduceSize'>" +
+                            "<table class='manageBox'>" +
+                                "<tr>" +
+                                    "<td class='std id'>#" + claim.id + "</td>" +
+                                    "<td class='centerRow'>" + claimObj.type + "</td>" +
+                                    "<td class='std ra id'>" + claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes() + " </td>" +//TODO
+                                "</tr><tr>" +
+                                    "<td colspan='3' rowspan='2' class='centerRow name'>" + claimObj.fullName + "</td>" +
+                                "</tr><tr>" +
+                                    "<td colspan='3'></td>" +
+                                "</tr><tr>" +
+                                    "<td><button class='manageButton' onclick='inspect()'>Inspect</button></td>" +
+                                    "<td colspan='1' class='centerRow'>" + claimObj.email + "</td>" +
+                                    "<td class='ra'><button class='manageButton' onclick='resolve()'>Resolve</button></td>" +
+                                "</tr>" +
+                                "</table>" +
+                        "</div>" +
+                    "</div>";
+            });
+        }).catch(function (error) {
+            console.log("Fetch failed :(, => ", error);
+        });
+    });
+}
+
+function filterClaimsID() {
+    
+}
+
+function filterClaimsEmail() {
+    
+}
+
+function filterClaimsType() {
+
+}
+
+function filterClaimsName() {
+
+}
+
+function filterClaimsDate() {
+
+}
+
+function resolve() {
+
+}
+
+function inspect() {
+    let modal = document.getElementById("inspectModal");
+    let span = document.getElementsByClassName("close")[0];
+
+    modal.style.display = "block";
+    span.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
 }

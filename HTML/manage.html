@@ -22,21 +22,6 @@
     <script src="../js/auth.js"></script>
     <script src="../js/manage.js"></script>
 
-    <script>
-        //NOTE REMOVE THIS ONCE DEPLOYED ON FIREBASE
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyCVAWE9Z6gnOQX1M0aDiolKLWw3n8dsZOU",
-            authDomain: "insurancesystem-6eddd.firebaseapp.com",
-            databaseURL: "https://insurancesystem-6eddd.firebaseio.com",
-            projectId: "insurancesystem-6eddd",
-            storageBucket: "insurancesystem-6eddd.appspot.com",
-            messagingSenderId: "628284186442",
-            appId: "1:628284186442:web:cc9956825d72c13c"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-    </script>
 </head>
 
 <body id="reportsPage">
@@ -108,7 +93,16 @@
                     </div>
                 </div>
                 <div id="claimsInjectPoint"></div>
+                <!-- MODAL FOR INSPECT -->
+                <div id="inspectModal" class="modal">
 
+                    <!-- Modal content -> JULIAN DO THINGS HERE -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <p>Help</p>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
@@ -127,7 +121,13 @@
     <script>
 
         checkAuthState('yes');
-        fetchClaimsStaff(); //TODO call from load animation
+
+        if (checkIsStaff()){
+            fetchClaimsStaff(); //TODO call from load animation
+        } else {
+            fetchClaimsUser(); //TODO call from load animation
+        }
+
         let ctxLine,
             ctxBar,
             ctxPie,
@@ -137,8 +137,9 @@
             configLine,
             configBar,
             configPie,
-            lineChart;
-        barChart, pieChart;
+            lineChart,
+            barChart,
+            pieChart;
         // DOM is ready
         $(function () {
             updateChartOptions();

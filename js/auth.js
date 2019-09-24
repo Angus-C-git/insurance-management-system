@@ -28,6 +28,17 @@ function checkAuthState(nonAccessPage) {
     });
 }
 
+function checkIsStaff() {
+    let db = firebase.firestore();
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        return db.collection('staff').doc(user.uid) !== undefined;
+    });
+
+}
+
+
+
 //Logout Function -> Ends user session
 function logout(){
     firebase.auth().signOut().then(function() {
