@@ -21,9 +21,9 @@ function fetchClaimsStaff() {
                             "<div class='bg-white tm-block h-100 reduceSize'>" +
                             "<table class='manageBox'>" +
                             "<tr>" +
-                            "<td class='id'>" + claimData.id + "</td>" +
+                            "<td class='std id'>" + claimData.id + "</td>" +
                             "<td class='centerRow'>" + claimObj.type + "</td>" +
-                            "<td class='ra id'>" + claimObj.claimDate.toDate() + "</td>" +//TODO
+                            "<td class='std ra id'>" + claimObj.claimDate.toDate() + "</td>" +//TODO
                             "</tr>" +
                             "<tr>" +
                             "<td colspan='3' rowspan='2' class='centerRow name'>" + claimObj.fullName + "</td>" +
