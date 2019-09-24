@@ -17,7 +17,6 @@ function fetchClaimsStaff() {
                         let claimObjPre = claimData.data();
                         let claimObj = claimObjPre.claim;
                         console.log(claimObj.additionalInfo);
-                        //console.log({claim : claim});
                     })
                 })
             });
