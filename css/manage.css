@@ -578,8 +578,7 @@ footer {
   width: 100%;
 }
 
-.manageBox.td {
-  max-width: 33%;
+.std {
   width: 33%;
 }
 .centerRow {
@@ -590,7 +589,7 @@ footer {
 .ra {
   text-align: right;
 }
-/*I AM COMMENT TO FIX STUFF*/
+
 .manageButton {
   height: 50px;
   width: 90px;
@@ -608,4 +607,8 @@ footer {
 .reduceSize {
   padding-top: 15px;
   padding-bottom: 15px;
+}
+
+#claimsInjectPoint {
+  width: 100%;
 }
