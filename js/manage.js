@@ -23,7 +23,7 @@ function fetchClaimsStaff() {
                             "<div class='bg-white tm-block h-100 reduceSize'>" +
                             "<table class='manageBox'>" +
                             "<tr>" +
-                            "<td class='std id'>" + claimData.id + "</td>" +
+                            "<td class='std id'>#" + claimData.id + "</td>" +
                             "<td class='centerRow'>" + claimObj.type + "</td>" +
                             "<td class='std ra id'>" + claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes() + " </td>" +//TODO
                             "</tr>" +
