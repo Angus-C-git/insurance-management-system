@@ -120,13 +120,7 @@
     <script src="js/tooplate-scripts.js"></script>
     <script>
 
-        checkAuthState('yes');
-
-        if (checkIsStaff()){
-            fetchClaimsStaff(); //TODO call from load animation
-        } else {
-            fetchClaimsUser(); //TODO call from load animation
-        }
+        checkAuthState('yes'); //TODO add animation
 
         let ctxLine,
             ctxBar,

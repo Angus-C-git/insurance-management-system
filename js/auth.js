@@ -14,11 +14,21 @@ firebase.initializeApp(firebaseConfig);
 
 function checkAuthState(nonAccessPage) {
     firebase.auth().onAuthStateChanged(function(user) {
+        let db = firebase.firestore();
 
         //If User is signed in display related tags
         if (user) {
             let uid = user.uid;
             console.log("Signed in", uid);
+            //If user is staff member fire full lookup query
+
+           db.collection('staff').doc(user.uid).get().then(function (data) {
+               console.log(data.data());
+                if (data.data() !== undefined){
+                    console.log("IS STAFF => ", user.uid);
+                    fetchClaimsStaff();
+                } else {fetchClaimsUser()}
+            });
         } else {
             console.log("Signed Out");
             if (nonAccessPage === "yes"){
@@ -27,17 +37,6 @@ function checkAuthState(nonAccessPage) {
         }
     });
 }
-
-function checkIsStaff() {
-    let db = firebase.firestore();
-
-    firebase.auth().onAuthStateChanged(function(user) {
-        return db.collection('staff').doc(user.uid) !== undefined;
-    });
-
-}
-
-
 
 //Logout Function -> Ends user session
 function logout(){

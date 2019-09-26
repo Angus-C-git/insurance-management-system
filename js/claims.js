@@ -39,7 +39,7 @@ function writeClaim() {
 
             let docRef = db.collection('users').doc(userId).collection('claims').doc();
             docRef.get().then(function(doc) {
-                console.log("Document data:", doc.data());
+                //console.log("Document data:", doc.data());
 
                 docRef.set({
                     claim: {
