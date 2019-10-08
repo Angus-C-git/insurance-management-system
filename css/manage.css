@@ -372,10 +372,6 @@ input[type="checkbox"]:focus {
   width: 15px;
 }
 
-footer {
-  margin-bottom: 35px;
-}
-
 .custom-select {
   height: 50px;
   border-radius: 0;
