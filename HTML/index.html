@@ -20,7 +20,7 @@
       <script src="../js/auth.js"></script>
 
   </head>
-  <body>
+  <body class="body">
     <!-- Hero section -->
     <section id="infinite" class="text-white tm-font-big tm-parallax">
       <!-- Navigation -->
@@ -28,16 +28,10 @@
         <span class="navSpanLogo">
             <img src="../img/AllInsureDarkTheme.png" alt="logoAllInsure" class="Logo"/>
             <li class="navLi"><a href="index.html" class="navHREF"><button class="navButton">Home</button></a></li>
-            <li class="navLi"><a href="about.html" class="navHREF"><button class="navButton" href="">About Us</button></a></li>
-            <li class="navLi"><a href="login.html" class="navHREF"><button class="navButton" href="">Login/Sign Up</button></a></li>
-            <li class="navLi">
-                <select class="navButton">
-                    <option class="navButton" onclick="window.location.replace('lodge.html')"><button class="navButton">Lodge</button></option>
-                    <option class="navButton" onclick="window.location.replace('manage.html')"><button class="navButton">Manage</button></option>
-                </select>
-            </li>
-            <li class="navLi navRadRight"><a href="stafflogin.html" class="navHREF"><button class="navButton" href="">Staff</button></a></li>
-
+            <li class="navLi"><a href="about.html" class="navHREF"><button class="navButton">About Us</button></a></li>
+            <li class="navLi"><a href="lodge.html" class="navHREF"><button class="navButton">Lodge</button></a></li>
+            <li class="navLi"><a href="manage.html" class="navHREF"><button class="navButton">Manage</button></a></li>
+            <li class="navLi navRadRight"><a href="login.html" class="navHREF"><button class="navButton">Sign Up/Login</button></a></li>
         </span>
         </div>
         <br/>
@@ -129,32 +123,20 @@
         </div>
 
     </section>
-    <div class="footer">
-        <table class="footerTable">
-            <tr class="footerTR">
-                <td class="footerTD">
-                    <a href="about.html" class="footer">About</a>
-                </td>
-                <td class="footerTD">
-                    <a href="contactus.html" class="footer">Contact Us</a>
-                </td>
-                <td class="footerTD">
-                    <a href="help.html" class="footer">Help</a>
-                </td>
-                <td class="footerTD">
-                    <a href="sitemap.html" class="footer">Site Map</a>
-                </td>
-                <td class="footerTD">
-                    <a href="tandc.html" class="footer">Terms & Conditions</a>
-                </td>
-                <td class="footerLogoAlign">
-                    <img src="../img/AllInsureDarkTheme.png" class="footerLogo" alt="AllInsureLogo"/>
-                    <br/>
-                    <span class="footerText">© 2019-2029 AllInsure</span>
-                </td>
-            </tr>
-        </table>
-    </div>
+
+    <footer>
+        <div class="footer">
+        <span>
+            <li class="footerTD"><a href="about.html" class="">About</a></li>
+            <li class="footerTD"><a href="contactus.html" class="">Contact Us</a></li>
+            <li class="footerTD"><a href="help.html" class="">Support</a></li>
+            <li class="footerTD"><a href="sitemap.html" class="">Site Map</a></li>
+            <li class="footerTD"><a href="tandc.html" class="">Terms & Conditions</a></li>
+            <li class="footerTD"><a href="stafflogin.html" class="">Staff</a></li>
+            <img src="../img/AllInsureDarkTheme.png" alt="logoAllInsure" class="footerLogo"/>
+        </span>
+        </div>
+    </footer>
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="slick/slick.min.js"></script>
     <script src="magnific-popup/jquery.magnific-popup.min.js"></script>
@@ -349,4 +331,5 @@
     </script>
 
   </body>
+
 </html>

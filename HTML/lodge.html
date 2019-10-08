@@ -22,21 +22,16 @@
 
 </head>
 
-<body id="application">
+<body id="application" class="body">
 <div class="navBar">
         <span class="navSpanLogo">
             <img src="../img/AllInsureDarkTheme.png" alt="logoAllInsure" class="Logo"/>
             <li class="navLi"><a href="index.html" class="navHREF"><button class="navButton">Home</button></a></li>
-            <li class="navLi"><a href="about.html" class="navHREF"><button class="navButton" href="">About Us</button></a></li>
-
-            <li class="navLi">
-                <select class="navButton">
-                    <option class="navButton" onclick="window.location.replace('lodge.html')"><button class="navButton">Lodge</button></option>
-                    <option class="navButton" onclick="window.location.replace('manage.html')"><button class="navButton">Manage</button></option>
-                </select>
-            </li>
-            <li class="navLi"><a class="navHREF"><button class="navButton" onclick="logout()">Logout</button></a></li>
-
+            <li class="navLi"><a href="about.html" class="navHREF"><button class="navButton">About Us</button></a></li>
+            <li class="navLi"><a href="login.html" class="navHREF"><button class="navButton">Login/Sign Up</button></a></li>
+            <li class="navLi"><a href="lodge.html" class="navHREF"><button class="navButton">Lodge</button></a></li>
+            <li class="navLi"><a href="manage.html" class="navHREF"><button class="navButton">Manage</button></a></li>
+            <li class="navLi navRadRight"><a href="logout" class="navHREF"><button class="navButton">Logout</button></a></li>
         </span>
 </div>
 <br/>
@@ -126,15 +121,22 @@
                 </div>
             </div>
         </div>
-        <footer class="row tm-mt-big mb-3">
-            <div class="col-xl-12 text-center">
-                <p class="d-inline-block tm-bg-black white-text py-2 tm-px-5">
-                    Copyright &copy; 2018 Allinsure
-                </p>
-            </div>
-        </footer>
-    </div>
 
+    </div>
+<br/>
+<footer>
+    <div class="footer">
+        <span>
+            <li class="footerTD"><a href="about.html" class="">About</a></li>
+            <li class="footerTD"><a href="contactus.html" class="">Contact Us</a></li>
+            <li class="footerTD"><a href="help.html" class="">Support</a></li>
+            <li class="footerTD"><a href="sitemap.html" class="">Site Map</a></li>
+            <li class="footerTD"><a href="tandc.html" class="">Terms & Conditions</a></li>
+            <li class="footerTD"><a href="stafflogin.html" class="">Staff</a></li>
+            <img src="../img/AllInsureDarkTheme.png" alt="logoAllInsure" class="footerLogo"/>
+        </span>
+    </div>
+</footer>
     <script src="../js/jquery-3.2.1.slim.min.js"></script>
     <script src="../js/materialize.min.js"></script>
     <script>
