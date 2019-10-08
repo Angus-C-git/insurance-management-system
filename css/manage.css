@@ -649,3 +649,49 @@ input[type="checkbox"]:focus {
   text-decoration: none;
   cursor: pointer;
 }
+
+.head {
+  width: 25%;
+}
+
+.heading {
+  font-size: 50px;
+}
+
+.date {
+  font-size: 25px;
+}
+.type {
+  text-align: center;
+  font-size: 35px;
+}
+
+.headPart {
+  padding-top: 30px;
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-bottom: 30px;
+}
+.personalDetail {
+  font-size: 25px;
+}
+.claimDetail {
+  font-size: 25px;
+  padding-top: 25px;
+}
+.size {
+  width: 50%;
+}
+.borderDetail {
+  border: 1px solid black;
+}
+.claimPart {
+  width: 100%;
+}
+.personalPart {
+  width: 100%;
+}
+
+.rightAlign {
+  text-align: right;
+}
