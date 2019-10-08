@@ -69,6 +69,10 @@ a:focus {
 
 }
 
+.marg {
+  margin-left: -80px;
+}
+
 .row,
 ul,
 li:last-child {
