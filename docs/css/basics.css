@@ -116,3 +116,7 @@
 #manageNavElement{
     display: none;
 }
+
+.hider{
+    display: none;
+}
