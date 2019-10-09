@@ -11,7 +11,7 @@ function writeClaim() {
     let mailingAddress1 = document.getElementById('address1').value;
     let mailingAddress2 = document.getElementById('address2').value;
     let city = document.getElementById('city').value;
-    let postCode = document.getElementById('postCode').value;
+    let postCode = document.getElementById('postcode').value;
     let gender = document.querySelector('input[name="gender"]:checked').value;
     let occurrenceDate = document.getElementById('occurrenceDate').value;
 
