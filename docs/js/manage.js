@@ -2,6 +2,11 @@
 const db = firebase.firestore();
 let uid;
 
+
+let claimRecords = {
+
+};
+
 function fetchClaimsStaff() {
     //TODO staff validation
 
@@ -72,6 +77,9 @@ function fetchClaimsUser() {
                 //console.log(claim.data());
                 let claimObj = claim.data().claim;
                 let claimDate = claimObj.claimDate.toDate();
+
+                let claimId = claim.id;
+                //onload="this.width=screenWidth;"
                 document.getElementById('claimsInjectPoint').innerHTML +=
                     "<div class='tm-col tm-col-span'>" +
                         "<div class='bg-white tm-block h-100 reduceSize'>" +
@@ -85,13 +93,17 @@ function fetchClaimsUser() {
                                 "</tr><tr>" +
                                     "<td colspan='3'></td>" +
                                 "</tr><tr>" +
-                                    "<td><button class='manageButton' onclick='inspect()'>Inspect</button></td>" +
+                                    "<td><button class='manageButton' onclick='inspect(this)'>Inspect<span class='hider'>"+ claimId+ "</span></button></td>" +
                                     "<td colspan='1' class='centerRow'>" + claimObj.email + "</td>" +
                                     "<td class='ra'><button class='manageButton' onclick='resolve()'>Resolve</button></td>" +
                                 "</tr>" +
                                 "</table>" +
                         "</div>" +
                     "</div>";
+
+                    //ADD THE CLAIM OBJ TO THE OBJECT OF CLAIMS
+
+                    claimRecords[claimId] = claimObj;
             });
         }).catch(function (error) {
             console.log("Fetch failed :(, => ", error);
@@ -123,14 +135,45 @@ function resolve() {
 
 }
 
-function inspect() {
+function inspect(claimID) {
     let modal = document.getElementById("inspectModal");
     let span = document.getElementsByClassName("close")[0];
 
     modal.style.display = "block";
 
-    //MODAL ELEMENTS
+    //ADD MODAL CONTENT
 
+    let recordID = claimID.firstChild.nextSibling.firstChild.nodeValue;
+    let claim = claimRecords[recordID];
+
+    document.getElementById('caseNumber').innerHTML = recordID;
+    //TODO lodged date
+    document.getElementById('claimType').innerHTML = claim.type;
+    document.getElementById('name').innerHTML = claim.fullName;
+    document.getElementById('email').innerHTML = claim.email;
+    document.getElementById('incidentDate').innerHTML = claim.occurrenceDate;
+    document.getElementById('addressOne').innerHTML = claim.mailingAddress1;
+    document.getElementById('addressTwo').innerHTML = claim.mailingAddress2;
+    document.getElementById('city').innerHTML = claim.city;
+    document.getElementById('postcode').innerHTML = claim.postCode;
+
+    document.getElementById('details').innerHTML = claim.additionalInfo;
+
+    //TODO add elements for relevant type
+    switch (claim.type) {
+        case "car":
+            document.getElementById('carClaim').classList.remove('hider');
+            break;
+        case "home":
+            //document.getElementById('')
+            break;
+        case "personal":
+            document.getElementById('personalClaim').classList.remove('hider');
+            break;
+        default:
+            console.log('no associated type');
+            break;
+    }
 
     //CLOSE MODAL =>
     span.onclick = function() {
