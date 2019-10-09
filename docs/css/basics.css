@@ -108,3 +108,11 @@
 .footerText {
     color: #38B !important;
 }
+
+#lodgeNavElement{
+    display: none;
+}
+
+#manageNavElement{
+    display: none;
+}
