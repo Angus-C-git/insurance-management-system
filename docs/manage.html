@@ -98,17 +98,13 @@
                         <div class="headPart">
                         <table class="personalPart">
                             <tr>
-                                <td class="head heading">
-                                    Case number
-                                </td>
-                                <td></td>
-                                <td class="head date rightAlign">
-                                    dd/mm/yyyy hh:mm
-                                </td>
+                                <td class="head heading">Case number</td>
+                                <td id="caseNumber"></td>
+                                <td id="lodgedDate" class="head date rightAlign"></td>
                             </tr>
                             <tr>
                                 <td class="head"></td>
-                                <td class="type">Claim Type</td>
+                                <td id="claimType" class="type">Claim Type</td>
                                 <td class="head"></td>
                             </tr>
                             <tr>
@@ -129,14 +125,14 @@
                                 <td>
                                     <table style="margin-right: 0; margin-left: auto;">
                                         <tr>
-                                            <td colspan="2" class="personalDetail rightAlign">First Line of Address</td>
+                                            <td id="addressOne" colspan="2" class="personalDetail rightAlign">First Line of Address</td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2" class="personalDetail rightAlign">Second Line of Address</td>
+                                            <td id="addressTwo" colspan="2" class="personalDetail rightAlign">Second Line of Address</td>
                                         </tr>
                                         <tr>
-                                            <td class="personalDetail">city</td>
-                                            <td class="personalDetail rightAlign">postcode</td>
+                                            <td id="city" class="personalDetail">city</td>
+                                            <td id="postcode" class="personalDetail rightAlign">postcode</td>
                                         </tr>
                                     </table>
                                 </td>
@@ -144,27 +140,27 @@
                         </table>
                         <hr/>
                         <table class="claimPart">
-                            <tr class="car">
-                                <td class="claimDetail size">Registration Number:<div></div></td>
-                                <td class="claimDetail size">Registration Expiry Date:<div></div></td>
+                            <tr id="carClaim" class="car">
+                                <td class="claimDetail size">Registration Number:<div id="registrationNumber"></div></td>
+                                <td class="claimDetail size">Registration Expiry Date:<div id="registrationExpiry"></div></td>
                             </tr>
                             <tr>
                                 <td class="claimDetail size">Details</td>
                             </tr>
                             <tr>
-                                <td colspan="2" class="borderDetail">Details</td>
+                                <td id="details" colspan="2" class="borderDetail"></td>
                             </tr>
                             <tr class="item">
                                 <td class="claimDetail size">Lost Items</td>
                             </tr>
-                            <tr class="item">
-                                <td colspan="2" class="borderDetail">ACtual lost items</td>
+                            <tr id="personalClaim" class="item">
+                                <td colspan="2" class="borderDetail" id="lostItems"></td>
                             </tr>
                             <tr>
                                 <td class="claimDetail size">Attached Files:</td>
                             </tr>
                             <tr>
-                                <td>Actual Files</td>
+                                <td><br></td>
                             </tr>
                         </table>
                     </div>
@@ -183,7 +179,7 @@
             <li class="footerTD"><a href="sitemap.html" class="">Site Map</a></li>
             <li class="footerTD"><a href="tandc.html" class="">Terms & Conditions</a></li>
             <li class="footerTD"><a href="stafflogin.html" class="">Staff</a></li>
-            <img src="../img/AllInsureDarkTheme.png" alt="logoAllInsure" class="footerLogo"/>
+            <img src="img/AllInsureDarkTheme.png" alt="logoAllInsure" class="footerLogo"/>
         </span>
     </div>
 </footer>

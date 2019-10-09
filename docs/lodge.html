@@ -18,7 +18,7 @@
     <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
 
     <script src="js/auth.js"></script>
-    <script src="js/claims.js"></script>
+    <script src="js/lodge.js"></script>
 
 </head>
 
@@ -55,9 +55,10 @@
                             <input id="email" name="email" type="email" class="validate tm-input-white-bg">
                         </div>
                         <div class="form-group mb-5">
-                            <label for="address1" class="black-text mb-4 big">Home Address</label>
-                            <input id="address1" name="address1" type="text" class="validate tm-input-white-bg mb-4">
-                            <input id="address2" name="address2" type="text" class="validate tm-input-white-bg mt-1">
+                            <label for="address1" class="black-text mb-4 big">Home Address
+                                <input id="address1" name="address1" type="text" class="validate tm-input-white-bg mb-4">
+                                <input id="address2" name="address2" type="text" class="validate tm-input-white-bg mt-1">
+                            </label>
                         </div>
                         <div class="row marg">
                             <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12 pr-0 tm-form-group-2-col tm-form-group-2-col-r">
@@ -86,35 +87,38 @@
 
                         <div class="row marg">
                             <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12 pr-0 tm-form-group-2-col tm-form-group-2-col-r">
-                                <label class="black-text mb-4 big">Type of claim</label>
-                                <select name="expectedsalary">
-                                    <option value="-">Select</option>
-                                    <option value="car">Car Cover</option>
-                                    <option value="home">Home Cover</option>
-                                    <option value="personal">Personal Effects Cover</option>
-                                </select>
+                                <label class="black-text mb-4 big">Type of claim
+                                    <select onchange="showRespectiveElements()" name="insuranceType" id="insuranceType">
+                                        <option value="-">Select</option>
+                                        <option value="car">Car Cover</option>
+                                        <option value="home">Home Cover</option>
+                                        <option value="personal">Personal Effects Cover</option>
+                                    </select>
+                                </label>
                             </div>
                             <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12 pr-0 tm-form-group-2-col tm-form-group-2-col-r">
-                                <label class="black-text mb-4 big">Date of Occurance</label>
-                                <input name="city" type="text" class="validate tm-input-white-bg mb-4">
+                                <label class="black-text mb-4 big">Date of Occurrence
+                                    <input id="occurrenceDate" name="occurrenceDate" type="text" class="validate tm-input-white-bg mb-4">
+                                </label>
                             </div>
                         </div>
 
-                        <span id="car">
-                        <div class="row marg">
-                            <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12 pr-0 tm-form-group-2-col tm-form-group-2-col-r">
-                                <label class="black-text mb-4 big">Registration</label>
-                                <input id="city" name="city" type="text" class="validate tm-input-white-bg mb-4">
+                        <span id="carHider" class="hider">
+                            <div class="row marg">
+                                <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12 pr-0 tm-form-group-2-col tm-form-group-2-col-r">
+                                    <label class="black-text mb-4 big">Registration
+                                        <input id="registrationNumber" name="registrationNumber" type="text" class="validate tm-input-white-bg mb-4">
+                                    </label>
+                                </div>
+                                <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12 pr-0 tm-form-group-2-col tm-form-group-2-col-r">
+                                    <label class="black-text mb-4 big">Registration Expiry Date
+                                        <input id="registrationExpiry" name="registrationExpiry" type="text" class="validate tm-input-white-bg mb-4">
+                                    </label>
+                                </div>
                             </div>
-                            <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12 pr-0 tm-form-group-2-col tm-form-group-2-col-r">
-                                <label class="black-text mb-4 big">Registration Expiry Date</label>
-                                <input id="postCode" name="postCode" type="text" class="validate tm-input-white-bg mb-4">
-                            </div>
-                        </div>
-
                         </span>
 
-                        <span id="home">
+                        <span id="homeHider" class="hider">
                             <div class="tm-bg-white tm-form-pad-big" style="padding: 15px; background-color: hsla(89, 43%, 51%, 0.0);">
                             <label class="black-text mb-4 big">Attach a police report (if possible)</label>
                             <div class="file-field input-field">
@@ -129,30 +133,33 @@
                             </div>
                         </span>
 
-                        <span id="items">
+                        <span id="personalHider" class="hider">
                              <div class="tm-bg-white tm-form-pad-big" style="padding: 15px; background-color: hsla(89, 43%, 51%, 0.0);">
-                            <label class="black-text mb-4 big">Attach a police report (if possible)</label>
-                            <div class="file-field input-field">
-                                <div class="btn btn-white">
-                                    <span>Browse...</span>
-                                    <input type="file" name="browse">
-                                </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" name="file" type="text" placeholder="your-file.pdf">
-                                </div>
-                            </div>
+                                <label class="black-text mb-4 big">Attach a police report (if possible)
+                                    <div class="file-field input-field">
+                                        <div class="btn btn-white">
+                                            <span>Browse...</span>
+                                            <input type="file" name="browse">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" name="file" type="text" placeholder="your-file.pdf">
+                                        </div>
+                                    </div>
+                                </label>
                             </div>
                             <br/>
                              <div class="form-group">
-                            <label for="message" class="black-text mb-4 big">Lost item(s)</label>
-                            <textarea class="p-3" name="message" cols="30" rows="4"></textarea>
-                        </div>
+                                <label for="lostItems" class="black-text mb-4 big">Lost item(s)
+                                    <textarea class="p-3" id="lostItems" name="lostItems" cols="30" rows="4"></textarea>
+                                </label>
+                            </div>
                         </span>
 
                         <br/>
                         <div class="form-group">
-                            <label for="message" class="black-text mb-4 big">Incident Notes</label>
-                            <textarea class="p-3" name="message" id="message" cols="30" rows="4"></textarea>
+                            <label for="incidentNotes" class="black-text mb-4 big">Additional Incident Notes
+                                <textarea class="p-3" name="message" id="incidentNotes" cols="30" rows="4"></textarea>
+                            </label>
                         </div>
 
                     </div>

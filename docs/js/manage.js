@@ -128,6 +128,11 @@ function inspect() {
     let span = document.getElementsByClassName("close")[0];
 
     modal.style.display = "block";
+
+    //MODAL ELEMENTS
+
+
+    //CLOSE MODAL =>
     span.onclick = function() {
         modal.style.display = "none";
     };
