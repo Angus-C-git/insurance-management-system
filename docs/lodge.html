@@ -8,30 +8,29 @@
     <title>Lodge a claim </title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/materialize.min.css">
-    <link rel="stylesheet" href="../css/login.css">
-    <link rel="stylesheet" href="../css/basics.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/basics.css">
 
     <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
 
-    <script src="../js/auth.js"></script>
-    <script src="../js/claims.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/claims.js"></script>
 
 </head>
 
 <body id="application" class="body">
 <div class="navBar">
         <span class="navSpanLogo">
-            <img src="../img/AllInsureDarkTheme.png" alt="logoAllInsure" class="Logo"/>
-            <li class="navLi"><a href="../index.html" class="navHREF"><button class="navButton">Home</button></a></li>
+            <img src="img/AllInsureDarkTheme.png" alt="logoAllInsure" class="Logo"/>
+            <li class="navLi"><a href="index.html" class="navHREF"><button class="navButton">Home</button></a></li>
             <li class="navLi"><a href="about.html" class="navHREF"><button class="navButton">About Us</button></a></li>
-            <li class="navLi"><a href="login.html" class="navHREF"><button class="navButton">Login/Sign Up</button></a></li>
-            <li class="navLi"><a href="lodge.html" class="navHREF"><button class="navButton">Lodge</button></a></li>
-            <li class="navLi"><a href="manage.html" class="navHREF"><button class="navButton">Manage</button></a></li>
-            <li class="navLi navRadRight"><a href="logout" class="navHREF"><button class="navButton">Logout</button></a></li>
+            <li id="lodgeNavElement" class="navLi"><a href="lodge.html" class="navHREF"><button class="navButton">Lodge</button></a></li>
+            <li id="manageNavElement" class="navLi"><a href="manage.html" class="navHREF"><button class="navButton">Manage</button></a></li>
+            <li class="navLi navRadRight"><a id="loginRedirect" href="login.html" class="navHREF"><button id="logButton" class="navButton">Sign Up/Login</button></a></li>
         </span>
 </div>
 <br/>
@@ -175,12 +174,12 @@
             <li class="footerTD"><a href="sitemap.html" class="footerText">Site Map</a></li>
             <li class="footerTD"><a href="tandc.html" class="footerText">Terms & Conditions</a></li>
             <li class="footerTD"><a href="stafflogin.html" class="footerText">Staff</a></li>
-            <img src="../img/AllInsureDarkTheme.png" alt="logoAllInsure" class="footerLogo"/>
+            <img src="img/AllInsureDarkTheme.png" alt="logoAllInsure" class="footerLogo"/>
         </span>
     </div>
 </footer>
-    <script src="../js/jquery-3.2.1.slim.min.js"></script>
-    <script src="../js/materialize.min.js"></script>
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/materialize.min.js"></script>
     <script>
         checkAuthState('yes');
         $(document).ready(function () {

@@ -6,9 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Home</title>
     <link rel="stylesheet" href="fontawesome-5.5/css/all.min.css" />
-    <link rel="stylesheet" href="slick/slick.css">
-    <link rel="stylesheet" href="slick/slick-theme.css">
-    <link rel="stylesheet" href="magnific-popup/magnific-popup.css">
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/tooplate-infinite-loop.css" />
       <link rel="stylesheet" href="css/basics.css"/>
@@ -28,10 +25,10 @@
         <span class="navSpanLogo">
             <img src="img/AllInsureDarkTheme.png" alt="logoAllInsure" class="Logo"/>
             <li class="navLi"><a href="index.html" class="navHREF"><button class="navButton">Home</button></a></li>
-            <li class="navLi"><a href="HTML/about.html" class="navHREF"><button class="navButton">About Us</button></a></li>
-            <li class="navLi"><a href="HTML/lodge.html" class="navHREF"><button class="navButton">Lodge</button></a></li>
-            <li class="navLi"><a href="HTML/manage.html" class="navHREF"><button class="navButton">Manage</button></a></li>
-            <li class="navLi navRadRight"><a href="HTML/login.html" class="navHREF"><button class="navButton">Sign Up/Login</button></a></li>
+            <li class="navLi"><a href="about.html" class="navHREF"><button class="navButton">About Us</button></a></li>
+            <li id="lodgeNavElement" class="navLi"><a href="lodge.html" class="navHREF"><button class="navButton">Lodge</button></a></li>
+            <li id="manageNavElement" class="navLi"><a href="manage.html" class="navHREF"><button class="navButton">Manage</button></a></li>
+            <li class="navLi navRadRight"><a id="loginRedirect" href="login.html" class="navHREF"><button id="logButton" class="navButton">Sign Up/Login</button></a></li>
         </span>
         </div>
         <br/>
@@ -127,19 +124,17 @@
     <footer>
         <div class="footer">
         <span>
-            <li class="footerTD"><a href="HTML/about.html" class="">About</a></li>
-            <li class="footerTD"><a href="HTML/contactus.html" class="">Contact Us</a></li>
-            <li class="footerTD"><a href="HTML/help.html" class="">Support</a></li>
-            <li class="footerTD"><a href="HTML/sitemap.html" class="">Site Map</a></li>
-            <li class="footerTD"><a href="HTML/tandc.html" class="">Terms & Conditions</a></li>
-            <li class="footerTD"><a href="HTML/stafflogin.html" class="">Staff</a></li>
+            <li class="footerTD"><a href="about.html" class="">About</a></li>
+            <li class="footerTD"><a href="contactus.html" class="">Contact Us</a></li>
+            <li class="footerTD"><a href="help.html" class="">Support</a></li>
+            <li class="footerTD"><a href="sitemap.html" class="">Site Map</a></li>
+            <li class="footerTD"><a href="tandc.html" class="">Terms & Conditions</a></li>
+            <li class="footerTD"><a href="stafflogin.html" class="">Staff</a></li>
             <img src="img/AllInsureDarkTheme.png" alt="logoAllInsure" class="footerLogo"/>
         </span>
         </div>
     </footer>
     <script src="js/jquery-1.9.1.min.js"></script>
-    <script src="slick/slick.min.js"></script>
-    <script src="magnific-popup/jquery.magnific-popup.min.js"></script>
     <script src="js/easing.min.js"></script>
     <script src="js/jquery.singlePageNav.min.js"></script>     
     <script src="js/bootstrap.min.js"></script> 
@@ -191,7 +186,7 @@
         multiplier = 1 - multiplier;
         var $doc = $(document);
         $object.css({"background-attachment" : "fixed"});
-        
+
         $(window).scroll(function(){
           if($(window).width() > 768) {
             var firstTop = $object.offset().top,

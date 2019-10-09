@@ -5,15 +5,20 @@ let uid;
 function fetchClaimsStaff() {
     //TODO staff validation
 
+    //Convert search button pointer
+    document.getElementById('searchButton').onclick = fetchClaimsStaff;
+
     document.getElementById('claimsInjectPoint').innerHTML = "";
 
     let searchRoot = db.collection('users');
 
-    console.log("attempting fetch...");
+    console.log("attempting fetch staff...");
     searchRoot.get().then(function (querySnapshot) {
         console.log("query fired..");
+        // FOR LOOP #1
         querySnapshot.forEach(function (doc) {
             searchRoot.doc(doc.id).collection('claims').get().then(function (data) {
+                // FOR LOOP #2
                 data.forEach(function (claim) {
                     //console.log(claim.id);
                     searchRoot.doc(doc.id).collection('claims').doc(claim.id).get().then(function (claimData) {
@@ -61,7 +66,7 @@ function fetchClaimsUser() {
         console.log("User UID: ", user.uid);
         let searchRoot = db.collection('users').doc(user.uid);
 
-        console.log("query fired..");
+        console.log("query fired usr..");
         searchRoot.collection('claims').get().then(function (data) {
             data.forEach(function (claim) {
                 //console.log(claim.data());

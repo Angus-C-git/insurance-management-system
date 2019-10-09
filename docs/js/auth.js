@@ -18,6 +18,12 @@ function checkAuthState(nonAccessPage) {
 
         //If User is signed in display related tags
         if (user) {
+            //SHOW NAV ELEMENTS
+            document.getElementById('lodgeNavElement').id = "";
+            document.getElementById('manageNavElement').id = "";
+            document.getElementById('logButton').innerHTML = "Logout";
+            document.getElementById('logButton').onclick = logout;
+
             let uid = user.uid;
             console.log("Signed in", uid);
             //If user is staff member fire full lookup query
@@ -32,7 +38,7 @@ function checkAuthState(nonAccessPage) {
         } else {
             console.log("Signed Out");
             if (nonAccessPage === "yes"){
-                window.location.replace("index.html");
+                window.location.replace("/insurance-managment-sytem/");
             }
         }
     });
