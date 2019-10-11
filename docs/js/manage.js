@@ -107,7 +107,7 @@ function fetchClaimsUser() {
                                 "</tr><tr>" +
                                     "<td><button class='manageButton' onclick='inspect(this)'>Inspect<span class='hider'>"+ claimId+ "</span></button></td>" +
                                     "<td colspan='1' class='centerRow'>" + claimObj.email + "</td>" +
-                                    "<td class='ra'><button class='manageButton' onclick='resolve()'>Reject</button><button class='manageLeft manageButton' onclick='resolve()'>Resolve</button></td>" +
+                                    "<td class='ra'></td>" +
                                 "</tr>" +
                                 "</table>" +
                         "</div>" +
