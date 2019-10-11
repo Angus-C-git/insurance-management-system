@@ -46,7 +46,7 @@ function fetchClaimsStaff() {
                                         "</tr><tr>" +
                                             "<td><button class='manageButton' onclick='inspect()'>Inspect</button></td>" +
                                             "<td colspan='1' class='centerRow'>" + claimObj.email + "</td>" +
-                                            "<td class='ra'><button class='manageButton' onclick='resolve()'>Resolve</button></td>" +
+                                            "<td class='ra'><button class='manageButton' onclick='resolve()'>Reject</button><button class='manageButton' onclick='resolve()'>Approve</button></td>" +
                                         "</tr>" +
                                     "</table>" +
                                 "</div>" +
