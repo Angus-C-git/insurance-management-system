@@ -36,17 +36,17 @@ function fetchClaimsStaff() {
                                 "<div class='bg-white tm-block h-100 reduceSize'>" +
                                     "<table class='manageBox'>" +
                                         "<tr>" +
-                                            "<td class='std id'>#" + claimData.id + "</td>" +
-                                            "<td class='centerRow'>" + claimObj.type + "</td>" +
+                                            "<td class='std id'>#" + claim.id + "</td>" +
+                                            "<td class='centerRow' rowspan='2'>" + claimDate.type +"<br/>Progress Bar" + "</td>" +
                                             "<td class='std ra id'>" + claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes() + " </td>" +//TODO
-                                        "</tr><tr>" +
+                                        "</tr><tr></tr><tr>" +
                                             "<td colspan='3' rowspan='2' class='centerRow name'>" + claimObj.fullName + "</td>" +
                                         "</tr><tr>" +
                                             "<td colspan='3'></td>" +
                                         "</tr><tr>" +
-                                            "<td><button class='manageButton' onclick='inspect()'>Inspect</button></td>" +
+                                            "<td><button class='manageButton' onclick='inspect(this)'>Inspect<span class='hider'>"+ claimId+ "</span></button></td>" +
                                             "<td colspan='1' class='centerRow'>" + claimObj.email + "</td>" +
-                                            "<td class='ra'><button class='manageButton' onclick='resolve()'>Reject</button><button class='manageButton' onclick='resolve()'>Approve</button></td>" +
+                                            "<td class='ra'><button class='manageButton' onclick='resolve()'>Reject</button><button class='manageLeft manageButton' onclick='resolve()'>Resolve</button></td>" +
                                         "</tr>" +
                                     "</table>" +
                                 "</div>" +
@@ -86,16 +86,16 @@ function fetchClaimsUser() {
                             "<table class='manageBox'>" +
                                 "<tr>" +
                                     "<td class='std id'>#" + claim.id + "</td>" +
-                                    "<td class='centerRow'>" + claimObj.type + "</td>" +
+                                    "<td class='centerRow' rowspan='2'>" + claimDate.type +"<br/>Progress Bar" + "</td>" +
                                     "<td class='std ra id'>" + claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes() + " </td>" +//TODO
-                                "</tr><tr>" +
+                                "</tr><tr></tr><tr>" +
                                     "<td colspan='3' rowspan='2' class='centerRow name'>" + claimObj.fullName + "</td>" +
                                 "</tr><tr>" +
                                     "<td colspan='3'></td>" +
                                 "</tr><tr>" +
                                     "<td><button class='manageButton' onclick='inspect(this)'>Inspect<span class='hider'>"+ claimId+ "</span></button></td>" +
                                     "<td colspan='1' class='centerRow'>" + claimObj.email + "</td>" +
-                                    "<td class='ra'><button class='manageButton' onclick='resolve()'>Reject</button><button class='manageButton' onclick='resolve()'>Resolve</button></td>" +
+                                    "<td class='ra'><button class='manageButton' onclick='resolve()'>Reject</button><button class='manageLeft manageButton' onclick='resolve()'>Resolve</button></td>" +
                                 "</tr>" +
                                 "</table>" +
                         "</div>" +
