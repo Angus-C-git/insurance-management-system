@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/materialize.min.css">
-    <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/basics.css">
+    <link rel="stylesheet" href="css/login.css">
 
     <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
@@ -92,7 +92,7 @@
                                         <option value="-">Select</option>
                                         <option value="car">Car Cover</option>
                                         <option value="home">Home Cover</option>
-                                        <option value="personal">Personal Effects Cover</option>
+                                        <option value="personal">Belongings Cover</option>
                                     </select>
                                 </label>
                             </div>
@@ -119,34 +119,11 @@
                         </span>
 
                         <span id="homeHider" class="hider">
-                            <div class="tm-bg-white tm-form-pad-big" style="padding: 15px; background-color: hsla(89, 43%, 51%, 0.0);">
-                            <label class="black-text mb-4 big">Attach a police report (if possible)</label>
-                            <div class="file-field input-field">
-                                <div class="btn btn-white">
-                                    <span>Browse...</span>
-                                    <input type="file" name="browse">
-                                </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" name="file" type="text" placeholder="your-file.pdf">
-                                </div>
-                            </div>
-                            </div>
+
                         </span>
 
                         <span id="personalHider" class="hider">
-                             <div class="tm-bg-white tm-form-pad-big" style="padding: 15px; background-color: hsla(89, 43%, 51%, 0.0);">
-                                <label class="black-text mb-4 big">Attach a police report (if possible)
-                                    <div class="file-field input-field">
-                                        <div class="btn btn-white">
-                                            <span>Browse...</span>
-                                            <input type="file" name="browse">
-                                        </div>
-                                        <div class="file-path-wrapper">
-                                            <input class="file-path validate" name="file" type="text" placeholder="your-file.pdf">
-                                        </div>
-                                    </div>
-                                </label>
-                            </div>
+
                             <br/>
                              <div class="form-group">
                                 <label for="lostItems" class="black-text mb-4 big">Lost item(s)
@@ -155,6 +132,8 @@
                             </div>
                         </span>
 
+
+
                         <br/>
                         <div class="form-group">
                             <label for="incidentNotes" class="black-text mb-4 big">Additional Incident Notes
@@ -162,6 +141,19 @@
                             </label>
                         </div>
 
+                        <div class="tm-bg-white tm-form-pad-big" style="padding: 15px; background-color: hsla(89, 43%, 51%, 0.0);">
+                            <label class="black-text mb-4 big">Attach supporting evidence (if possible)
+                                <div class="file-field input-field">
+                                    <div class="btn btn-white">
+                                        <span>Browse...</span>
+                                        <input type="file" name="browse">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" name="file" type="text" placeholder="your-file.pdf">
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
                     </div>
                     <div class="text-center mt-5">
                         <button onclick="writeClaim()" type="submit" class="waves-effect btn-large btn-large-white">Submit</button>
@@ -175,12 +167,11 @@
 <footer>
     <div class="footer">
         <span>
-            <li class="footerTD"><a href="about.html" class="footerText">About</a></li>
-            <li class="footerTD"><a href="contactus.html" class="footerText">Contact Us</a></li>
-            <li class="footerTD"><a href="help.html" class="footerText">Support</a></li>
-            <li class="footerTD"><a href="sitemap.html" class="footerText">Site Map</a></li>
-            <li class="footerTD"><a href="tandc.html" class="footerText">Terms & Conditions</a></li>
-            <li class="footerTD"><a href="stafflogin.html" class="footerText">Staff</a></li>
+            <li class="footerTD"><a href="about.html" class="">About</a></li>
+            <li class="footerTD"><a href="contactus.html" class="">Enquiries</a></li>
+            <li class="footerTD"><a href="sitemap.html" class="">Site Map</a></li>
+            <li class="footerTD"><a href="tandc.html" class="">Terms & Conditions</a></li>
+            <li class="footerTD"><a href="stafflogin.html" class="">Staff</a></li>
             <img src="img/AllInsureDarkTheme.png" alt="logoAllInsure" class="footerLogo"/>
         </span>
     </div>

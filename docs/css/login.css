@@ -41,7 +41,7 @@ body {
 }
 
 a {
-  color: #FFF;
+  /*color: #FFF;*/
   transition: all 0.3s ease;
 }
 a:hover,

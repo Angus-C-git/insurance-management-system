@@ -38,11 +38,7 @@ function fetchClaimsStaff() {
                                         "<tr>" +
                                             "<td class='std id'>#" + claim.id + "</td>" +
                                             "<td class='centerRow' rowspan='2'>" + claimDate.type +"<br/>" +
-                            "<div class='w3-light-grey'>" + "Hello" +
 
-                            "<div class='w3-container w3-green w3-center' style='width:100%'></div>" +
-
-                            "</div>" +
                                             "</td>" +
                                             "<td class='std ra id'>" + claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes() + " </td>" +//TODO
                                         "</tr><tr></tr><tr>" +
@@ -92,13 +88,8 @@ function fetchClaimsUser() {
                             "<table class='manageBox'>" +
                                 "<tr>" +
                                     "<td class='std id'>#" + claim.id + "</td>" +
-                                    "<td class='centerRow' rowspan='2'>" + claimDate.type +
-                                        "<div class='w3-light-grey'>" +
+                                    "<td class='centerRow' rowspan='2'>" + claimDate.type + "<br/>" +
 
-                                            "<div class='w3-container w3-green w3-center' style='width:25%'></div>" +
-
-                                        "</div>" +
-                                    "</td>" +
                                     "<td class='std ra id'>" + claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes() + " </td>" +//TODO
                                 "</tr><tr></tr><tr>" +
                                     "<td colspan='3' rowspan='2' class='centerRow name'>" + claimObj.fullName + "</td>" +
@@ -159,7 +150,7 @@ function inspect(claimID) {
     let claim = claimRecords[recordID];
 
     document.getElementById('caseNumber').innerHTML = recordID;
-    //TODO lodged date
+    /*document.getElementById('lodgedDate').innerHTML = claim.claimDate.getDate() + "/" + claim.claimDate.getMonth() + "/" + claim.claimDate.getFullYear() + "   " + claim.claimDate.getHours() + ":" + claim.claimDate.getMinutes();*/
     document.getElementById('claimType').innerHTML = claim.type;
     document.getElementById('name').innerHTML = claim.fullName;
     document.getElementById('email').innerHTML = claim.email;
