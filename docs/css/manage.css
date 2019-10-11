@@ -587,12 +587,16 @@ input[type="checkbox"]:focus {
 }
 
 .manageButton {
-  height: 50px;
-  width: 90px;
+  height: 40px;
+  width: 110px;
   font-weight: bold;
   border-radius: 3px;
-  padding-right: 10px;
 }
+
+.manageLeft {
+  margin-left: 20px;
+}
+
 .name {
   font-weight: bold;
   font-size: 30px;
