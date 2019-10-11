@@ -30,34 +30,30 @@ function fetchClaimsStaff() {
                         let claimObjPre = claimData.data();
                         let claimObj = claimObjPre.claim;
                         let claimDate = claimObj.claimDate.toDate();
+                        let claimId = claim.id;
                         //console.log(claimObj.additionalInfo);
                         document.getElementById('claimsInjectPoint').innerHTML +=
                             "<div class='tm-col tm-col-span'>" +
                                 "<div class='bg-white tm-block h-100 reduceSize'>" +
                                     "<table class='manageBox'>" +
                                         "<tr>" +
-                                            "<td class='std id'>#" + claim.id + "</td>" +
-                                            "<td class='centerRow' rowspan='2'>" + claimDate.type +"<br/>" +
-                            "<div class='w3-light-grey'>" + "Hello" +
-
-                            "<div class='w3-container w3-green w3-center' style='width:100%'></div>" +
-
-                            "</div>" +
-                                            "</td>" +
+                                            "<td class='std id'>#" + claimData.id + "</td>" +
+                                            "<td class='centerRow'>" + claimObj.type + "</td>" +
                                             "<td class='std ra id'>" + claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes() + " </td>" +//TODO
-                                        "</tr><tr></tr><tr>" +
+                                        "</tr><tr>" +
                                             "<td colspan='3' rowspan='2' class='centerRow name'>" + claimObj.fullName + "</td>" +
                                         "</tr><tr>" +
                                             "<td colspan='3'></td>" +
                                         "</tr><tr>" +
-                                            "<td><button class='manageButton' onclick='inspect(this)'>Inspect<span class='hider'>"+ claimId+ "</span></button></td>" +
+                            "<td><button class='manageButton' onclick='inspect(this)'>Inspect<span class='hider'>"+ claimId + "</span></button></td>" +
                                             "<td colspan='1' class='centerRow'>" + claimObj.email + "</td>" +
-                                            "<td class='ra'><button class='manageButton' onclick='resolve()'>Reject</button><button class='manageLeft manageButton' onclick='resolve()'>Resolve</button></td>" +
+                                            "<td class='ra'><button class='manageButton' onclick='resolve()'>Resolve</button></td>" +
                                         "</tr>" +
                                     "</table>" +
                                 "</div>" +
                             "</div>";
 
+                        claimRecords[claimId] = claimObj;
                     })
                 })
             });
@@ -92,22 +88,16 @@ function fetchClaimsUser() {
                             "<table class='manageBox'>" +
                                 "<tr>" +
                                     "<td class='std id'>#" + claim.id + "</td>" +
-                                    "<td class='centerRow' rowspan='2'>" + claimDate.type +
-                                        "<div class='w3-light-grey'>" +
-
-                                            "<div class='w3-container w3-green w3-center' style='width:25%'></div>" +
-
-                                        "</div>" +
-                                    "</td>" +
+                                    "<td class='centerRow'>" + claimObj.type + "</td>" +
                                     "<td class='std ra id'>" + claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes() + " </td>" +//TODO
-                                "</tr><tr></tr><tr>" +
+                                "</tr><tr>" +
                                     "<td colspan='3' rowspan='2' class='centerRow name'>" + claimObj.fullName + "</td>" +
                                 "</tr><tr>" +
                                     "<td colspan='3'></td>" +
                                 "</tr><tr>" +
-                                    "<td><button class='manageButton' onclick='inspect(this)'>Inspect<span class='hider'>"+ claimId+ "</span></button></td>" +
+                                    "<td><button class='manageButton' onclick='inspect(this)'>Inspect<span class='hider'>"+ claimId + "</span></button></td>" +
                                     "<td colspan='1' class='centerRow'>" + claimObj.email + "</td>" +
-                                    "<td class='ra'><button class='manageButton' onclick='resolve()'>Reject</button><button class='manageLeft manageButton' onclick='resolve()'>Resolve</button></td>" +
+                                    "<td class='ra'><button class='manageButton' onclick='resolve()'>Resolve</button></td>" +
                                 "</tr>" +
                                 "</table>" +
                         "</div>" +
@@ -154,13 +144,12 @@ function inspect(claimID) {
     modal.style.display = "block";
 
     //ADD MODAL CONTENT
-
     let recordID = claimID.firstChild.nextSibling.firstChild.nodeValue;
     let claim = claimRecords[recordID];
 
     document.getElementById('caseNumber').innerHTML = recordID;
     //TODO lodged date
-    document.getElementById('claimType').innerHTML = claim.type;
+    document.getElementById('claimType').innerHTML = claim.type.toString().charAt(0).toUpperCase() + claim.type.slice(1,) + " Claim";
     document.getElementById('name').innerHTML = claim.fullName;
     document.getElementById('email').innerHTML = claim.email;
     document.getElementById('incidentDate').innerHTML = claim.occurrenceDate;
@@ -172,8 +161,11 @@ function inspect(claimID) {
     document.getElementById('details').innerHTML = claim.additionalInfo;
 
     //TODO add elements for relevant type
+    console.log("CLAIM TYPE => ", claim.type);
     switch (claim.type) {
         case "car":
+            document.getElementById('registrationNumber').innerHTML = claim.registrationNumber;
+            document.getElementById('registrationExpiry').innerHTML = claim.registrationExpiry;
             document.getElementById('carClaim').classList.remove('hider');
             break;
         case "home":

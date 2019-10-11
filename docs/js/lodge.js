@@ -46,7 +46,11 @@ function writeClaim() {
                                 registrationExpiry: registrationExpiry,
                                 additionalInfo: additionalInfo
                             }
+                        }).then(function () {
+                            console.log("claim lodged");
+                            window.location.replace('manage.html');
                         });
+
                         break;
                     case "home":
                         //TODO work out how to do file stuff
@@ -65,6 +69,9 @@ function writeClaim() {
                                 occurrenceDate: occurrenceDate,
                                 additionalInfo: additionalInfo
                             }
+                        }).then(function () {
+                            console.log("claim lodged");
+                            window.location.replace('manage.html');
                         });
                         break;
                     case "personal":
@@ -85,6 +92,9 @@ function writeClaim() {
                                 lostItems: lostItems,
                                 additionalInfo: additionalInfo
                             }
+                        }).then(function () {
+                            console.log("claim lodged");
+                            window.location.replace('manage.html');
                         });
                         break;
                     default:
