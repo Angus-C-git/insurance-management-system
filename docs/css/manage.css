@@ -591,6 +591,7 @@ input[type="checkbox"]:focus {
   width: 90px;
   font-weight: bold;
   border-radius: 3px;
+  padding-right: 10px;
 }
 .name {
   font-weight: bold;
