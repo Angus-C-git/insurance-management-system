@@ -45,7 +45,7 @@ function fetchClaimsStaff() {
                                         "</tr><tr>" +
                                             "<td colspan='3'></td>" +
                                         "</tr><tr>" +
-                            "<td><button class='manageButton' onclick='inspect(this)'>Inspect<span class='hider'>"+ claimId + "</span></button></td>" +
+                                            "<td><button class='manageButton' onclick='inspect(this)'>Inspect<span class='hider'>"+ claimId + "</span></button></td>" +
                                             "<td colspan='1' class='centerRow'>" + claimObj.email + "</td>" +
                                             "<td class='ra'><button class='manageButton' onclick='resolve()'>Resolve</button></td>" +
                                         "</tr>" +
@@ -172,6 +172,7 @@ function inspect(claimID) {
             //document.getElementById('')
             break;
         case "personal":
+            document.getElementById('lostItems').innerHTML = claim.lostItems;
             document.getElementById('personalClaim').classList.remove('hider');
             break;
         default:
