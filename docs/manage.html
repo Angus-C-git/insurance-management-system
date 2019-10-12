@@ -68,24 +68,23 @@
                     <div class="bg-white tm-block h-100">
                         <table id="searchBox">
                             <tr>
-                                <th> Search Criteria<br/><br/></th>
+                                <th> Search Records(s)<br/><br/></th>
                             </tr>
                             <tr>
                                 <td class="selectSearch">
-                                    <input type="text" class="textSearch">
-                                        <select class="selectOptions">
-                                            <option>ID</option>
-                                            <option>E-mail</option>
-                                            <option>Full Name</option>
-                                            <option>Type</option>
-                                            <option>Date</option>
+                                    <input id="searchBarText" type="text" class="textSearch">
+                                        <select id="searchFilter" name="searchFilter" class="selectOptions">
+                                            <option value="id">ID</option>
+                                            <option value="email">E-mail</option>
+                                            <option value="fullName">Full Name</option>
+                                            <option value="type">Type</option>
+                                            <option value="date">Date</option>
                                         </select>
-                                    </input>
                                 </td>
                             </tr>
                             <tr class="searchSubmitLine">
                                 <!-- changes based on authentication-->
-                                <td><br/><button id="searchButton" onclick="fetchClaimsUser()" class="submitButton">Search</button></td>
+                                <td><br/><button id="searchButton" onclick="search()" class="submitButton">Search</button></td>
                             </tr>
                         </table>
 
@@ -96,7 +95,7 @@
                 <!-- MODAL FOR INSPECT -->
                 <div id="inspectModal" class="modal">
 
-                    <!-- Modal content -> JULIAN DO THINGS HERE -->
+                    <!-- Modal content -->
                     <div class="modal-content">
                         <span class="close">&times;</span>
                         <div class="headPart">
@@ -108,7 +107,7 @@
                             <tr>
                                 <td class="head"></td>
                                 <td class="type"><label id="claimType">Claim Type</label>
-                                    <div id="progressBar">O----O----O</div>
+                                    <div id="progressBar">O----O----O</div> <!-- TODO: implement this -->
                                 </td>
                                 <td class="head"></td>
                             </tr>
@@ -171,6 +170,29 @@
                     </div>
                     </div>
                 </div>
+
+                <!-- RESOLVE MODAL -->
+                <div id="resolveModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <div class="headPart"></div>
+                    </div>
+
+                </div>
+
+                <!-- REJECT MODAL -->
+                <div id="rejectModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <div class="headPart"></div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </div>
