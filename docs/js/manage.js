@@ -2,10 +2,8 @@
 const db = firebase.firestore();
 let uid;
 
-
-let claimRecords = {
-
-};
+//Holds all claims keyed by claimID as fetched from the db
+let claimRecords = {};
 
 function fetchClaimsStaff() {
     //TODO staff validation
@@ -19,8 +17,7 @@ function fetchClaimsStaff() {
 
     console.log("attempting fetch staff...");
     searchRoot.get().then(function (querySnapshot) {
-        console.log("query fired..");
-        // FOR LOOP #1
+        console.log("query fired..");        // FOR LOOP #1
         querySnapshot.forEach(function (doc) {
             searchRoot.doc(doc.id).collection('claims').get().then(function (data) {
                 // FOR LOOP #2
@@ -30,6 +27,8 @@ function fetchClaimsStaff() {
                         let claimObjPre = claimData.data();
                         let claimObj = claimObjPre.claim;
                         let claimDate = claimObj.claimDate.toDate();
+
+                        let claimId = claim.id;
                         //console.log(claimObj.additionalInfo);
                         document.getElementById('claimsInjectPoint').innerHTML +=
                             "<div class='tm-col tm-col-span'>" +
@@ -48,12 +47,13 @@ function fetchClaimsStaff() {
                                         "</tr><tr>" +
                                             "<td><button class='manageButton' onclick='inspect(this)'>Inspect<span class='hider'>"+ claimId+ "</span></button></td>" +
                                             "<td colspan='1' class='centerRow'>" + claimObj.email + "</td>" +
-                                            "<td class='ra'><button class='manageButton' onclick='resolve()'>Reject</button><button class='manageLeft manageButton' onclick='resolve()'>Resolve</button></td>" +
+                                            "<td class='ra'><button class='manageButton' onclick='reject(this)'>Reject<span class='hider'>"+ claimId+ "</span></button><button class='manageLeft manageButton' onclick='resolve()'>Resolve<span class='hider'>"+ claimId+ "</span></button></td>" +
                                         "</tr>" +
                                     "</table>" +
                                 "</div>" +
                             "</div>";
 
+                        claimRecords[claimId] = claimObj;
                     })
                 })
             });
@@ -114,29 +114,52 @@ function fetchClaimsUser() {
     });
 }
 
-function filterClaimsID() {
-    
+function search() {
+   let searchString =  document.getElementById('searchBarText').value;
+   let filter = document.getElementById('searchFilter').value;
+
+   console.log("Search String => ", searchString, " Filter => ", filter);
+
+    //TODO add validation and query code
+   switch (filter) {
+       case "id":
+           break;
+       case "email":
+           break;
+       case "fullName":
+           break;
+       case "type":
+           break;
+       case "date":
+           break;
+       default:
+           console.log("No associated filter");
+           break;
+   }
+
+   function filterClaimsID() {
+
+   }
+
+   function filterClaimsEmail() {
+
+   }
+
+   function filterClaimsType() {
+
+   }
+
+   function filterClaimsName() {
+
+   }
+
+   function filterClaimsDate() {
+
+   }
+
 }
 
-function filterClaimsEmail() {
-    
-}
 
-function filterClaimsType() {
-
-}
-
-function filterClaimsName() {
-
-}
-
-function filterClaimsDate() {
-
-}
-
-function resolve() {
-
-}
 
 function inspect(claimID) {
     let modal = document.getElementById("inspectModal");
@@ -177,6 +200,52 @@ function inspect(claimID) {
             console.log('no associated type');
             break;
     }
+
+    //CLOSE MODAL =>
+    span.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+}
+
+function resolve(claimID) {
+    let modal = document.getElementById("resolveModal");
+    let span = document.getElementsByClassName("close")[0];
+
+    modal.style.display = "block";
+
+
+    let recordID = claimID.firstChild.nextSibling.firstChild.nodeValue;
+    let claim = claimRecords[recordID];
+
+    //CLOSE MODAL =>
+    span.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+}
+
+function reject(claimID) {
+    let modal = document.getElementById("rejectModal");
+    let span = document.getElementsByClassName("close")[0];
+
+    modal.style.display = "block";
+
+    let recordID = claimID.firstChild.nextSibling.firstChild.nodeValue;
+    let claim = claimRecords[recordID];
+
 
     //CLOSE MODAL =>
     span.onclick = function() {
