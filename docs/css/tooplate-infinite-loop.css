@@ -10,7 +10,7 @@ https://www.tooplate.com/view/2117-infinite-loop
 
 body {
 	font-family: "Raleway", sans-serif;
-	font-size: 1.2em;
+	/*font-size: 1.2em;*/
   color: #707070;
   margin: 0;
   padding: 0;
@@ -517,10 +517,9 @@ figure.effect-honey:hover h2 i {
   background-image: url(../img/infinite-loop-03.jpg);
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 980px;
+  /*min-height: 980px;
   position: relative;
-  padding-bottom: 50px;
-  padding-top: 100px;
+  padding-bottom: 0px;*/
 }
 
 .contact-item {
@@ -696,4 +695,9 @@ p {
   .tm-gallery-item {
     margin: 0;
   }
+}
+
+#actualBody {
+  padding-top: 6%;
+  padding-left: 5%;
 }
