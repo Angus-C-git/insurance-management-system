@@ -701,3 +701,35 @@ p {
   padding-top: 6%;
   padding-left: 5%;
 }
+
+.background {
+  padding-bottom: 100px;
+  background-image: url(../img/sitemapBG.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#textInsideSiteMap{
+  text-align: left;
+  list-style-type: circle;
+  margin-left: 40%;
+  font-size: 50px;
+}
+
+.siteText {
+  color: white;
+}
+
+.termsText {
+  color: white;
+}
+
+.tandcBG {
+  background-image: url(../img/termsBG.jpg);
+}
+
+.tandcContainer {
+  width: 225%;
+  margin-left: -800px;
+}
