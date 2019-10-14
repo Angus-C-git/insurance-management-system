@@ -26,7 +26,7 @@
 </head>
 
 <body class="body">
-<div id="loader" style="margin-left: 50%; margin-top: 15%;"></div>
+<span id="hider" class="hider">
 <span id="reportsPage">
 <div class="navBar">
         <span class="navSpanLogo">
@@ -38,6 +38,8 @@
             <li class="navLi navRadRight"><a id="loginRedirect" href="login.html" class="navHREF"><button id="logButton" class="navButton">Sign Up/Login</button></a></li>
         </span>
 </div>
+
+
 <br/>
 <br/>
     <br/>
@@ -91,7 +93,13 @@
                     </div>
 
                 </div>
+
+                <div id="claimsLoader" class="hider" style="margin-left: 50%; margin-top: 15%;"></div>
+
                 <div id="claimsInjectPoint"></div>
+
+
+
                 <!-- MODAL FOR INSPECT -->
                 <div id="inspectModal" class="modal">
 
@@ -197,6 +205,8 @@
         </div>
     </div>
 </span>
+</span>
+
 <footer>
     <div class="footer">
         <span>
@@ -209,6 +219,9 @@
         </span>
     </div>
 </footer>
+
+    <div id="loader" style="margin-left: 50%; margin-top: 15%;"></div>
+
     <script src="js/jquery-3.3.1.min.js"></script>
     <!-- https://jquery.com/download/ -->
     <script src="js/moment.min.js"></script>
@@ -224,6 +237,17 @@
     <script>
 
         checkAuthState('yes'); //TODO add animation
+
+        $( document ).ready(function() {
+            console.log( "ready!" );
+            let hider = setInterval(hide, 3000);
+            function hide(){
+                document.getElementById('loader').classList.add('hider');
+                document.getElementById('hider').classList.remove('hider');
+                clearInterval(hider);
+            }
+
+        });
         /*
         let ctxLine,
             ctxBar,

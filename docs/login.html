@@ -23,7 +23,8 @@
 </head>
 
 <body id="login" class="body">
-<div id="loader" style="margin-left: 50%; margin-top: 15%;"></div>
+<span id="hider" class="hider">
+
 <section>
     <div class="navBar">
         <span class="navSpanLogo">
@@ -86,12 +87,18 @@
         </span>
     </div>
 </footer>
+</span>
+
+    <div id="loader" style="margin-left: 50%; margin-top: 15%;"></div>
 
     <script src="js/jquery-3.2.1.slim.min.js"></script>
     <script src="js/materialize.min.js"></script>
     <script>
-        $(document).ready(function () {
+        $( document ).ready(function() {
             $('select').formSelect();
+            console.log( "ready!" );
+            document.getElementById('loader').classList.add('hider');
+            document.getElementById('hider').classList.remove('hider');
         });
     </script>
 </body>
