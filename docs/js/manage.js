@@ -230,7 +230,8 @@ function inspect(claimID) {
 
 function resolve(claimID) {
     let modal = document.getElementById("resolveModal");
-    let span = document.getElementsByClassName("close")[0];
+    //let span = document.getElementsByClassName("close")[0];
+    let closeButton = document.getElementById('resolveClose');
 
     modal.style.display = "block";
 
@@ -238,7 +239,7 @@ function resolve(claimID) {
     let claim = claimRecords[recordID];
 
     //CLOSE MODAL =>
-    span.onclick = function() {
+    closeButton.onclick = function() {
         modal.style.display = "none";
     };
 
@@ -252,7 +253,8 @@ function resolve(claimID) {
 
 function reject(claimID) {
     let modal = document.getElementById("rejectModal");
-    let span = document.getElementsByClassName("close")[0];
+    //let span = document.getElementsByClassName("close")[0];
+    let closeButton = document.getElementById('rejectClose');
 
     modal.style.display = "block";
 
@@ -263,7 +265,7 @@ function reject(claimID) {
 
 
     //CLOSE MODAL =>
-    span.onclick = function() {
+    closeButton.onclick = function() {
         modal.style.display = "none";
     };
 
