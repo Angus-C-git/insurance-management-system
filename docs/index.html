@@ -18,7 +18,8 @@
 
   </head>
   <body class="body">
-  <div id="loader" style="margin-left: 50%; margin-top: 15%;"></div>
+
+  <span id="hider" class="hider">
     <!-- Hero section -->
     <section id="infinite" class="text-white tm-font-big tm-parallax">
       <!-- Navigation -->
@@ -51,6 +52,7 @@
         </a>
       </div>      
     </section>
+
 
     <section id="whatwedo" class="tm-section-pad-top">
       
@@ -134,73 +136,82 @@
         </span>
         </div>
     </footer>
+  </span>
+  <div id="loader" style="margin-left: 50%; margin-top: 15%;"></div>
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/easing.min.js"></script>
     <script src="js/jquery.singlePageNav.min.js"></script>     
     <script src="js/bootstrap.min.js"></script> 
     <script>
         checkAuthState();
-      function getOffSet(){
-          let _offset = 450;
-          const windowHeight = window.innerHeight;
 
-          if(windowHeight > 500) {
-          _offset = 400;
-        } 
-        if(windowHeight > 680) {
-          _offset = 300
-        }
-        if(windowHeight > 830) {
-          _offset = 210;
-        }
+        $( document ).ready(function() {
+            console.log( "ready!" );
+            document.getElementById('loader').classList.add('hider');
+            document.getElementById('hider').classList.remove('hider');
+        });
 
-        return _offset;
-      }
+        function getOffSet(){
+              let _offset = 450;
+              const windowHeight = window.innerHeight;
 
-      function setParallaxPosition($doc, multiplier, $object){
-          const offset = getOffSet();
-          const from_top = $doc.scrollTop(),
-              bg_css = 'center ' + (multiplier * from_top - offset) + 'px';
-          $object.css({"background-position" : bg_css });
-      }
-
-      // Parallax function
-      // Adapted based on https://codepen.io/roborich/pen/wpAsm        
-        const background_image_parallax = function ($object, multiplier, forceSet) {
-            multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
-            multiplier = 1 - multiplier;
-            var $doc = $(document);
-            // $object.css({"background-attatchment" : "fixed"});
-
-            if (forceSet) {
-                setParallaxPosition($doc, multiplier, $object);
-            } else {
-                $(window).scroll(function () {
-                    setParallaxPosition($doc, multiplier, $object);
-                });
+              if(windowHeight > 500) {
+              _offset = 400;
             }
-        };
+            if(windowHeight > 680) {
+              _offset = 300
+            }
+            if(windowHeight > 830) {
+              _offset = 210;
+            }
 
-        const background_image_parallax_2 = function ($object, multiplier) {
-            multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
-            multiplier = 1 - multiplier;
-            const $doc = $(document);
-            $object.css({"background-attachment": "fixed"});
+            return _offset;
+          }
 
-            $(window).scroll(function () {
-                if ($(window).width() > 768) {
-                    const firstTop = $object.offset().top,
-                        pos = $(window).scrollTop(),
-                        yPos = Math.round((multiplier * (firstTop - pos)) - 186);
+          function setParallaxPosition($doc, multiplier, $object){
+              const offset = getOffSet();
+              const from_top = $doc.scrollTop(),
+                  bg_css = 'center ' + (multiplier * from_top - offset) + 'px';
+              $object.css({"background-position" : bg_css });
+          }
 
-                    const bg_css = 'center ' + yPos + 'px';
+          // Parallax function
+          // Adapted based on https://codepen.io/roborich/pen/wpAsm
+            const background_image_parallax = function ($object, multiplier, forceSet) {
+                multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
+                multiplier = 1 - multiplier;
+                var $doc = $(document);
+                // $object.css({"background-attatchment" : "fixed"});
 
-                    $object.css({"background-position": bg_css});
+                if (forceSet) {
+                    setParallaxPosition($doc, multiplier, $object);
                 } else {
-                    $object.css({"background-position": "center"});
+                    $(window).scroll(function () {
+                        setParallaxPosition($doc, multiplier, $object);
+                    });
                 }
-            });
-        };
+            };
+
+            const background_image_parallax_2 = function ($object, multiplier) {
+                multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
+                multiplier = 1 - multiplier;
+                const $doc = $(document);
+                $object.css({"background-attachment": "fixed"});
+
+                $(window).scroll(function () {
+                    if ($(window).width() > 768) {
+                        const firstTop = $object.offset().top,
+                            pos = $(window).scrollTop(),
+                            yPos = Math.round((multiplier * (firstTop - pos)) - 186);
+
+                        const bg_css = 'center ' + yPos + 'px';
+
+                        $object.css({"background-position": bg_css});
+                    } else {
+                        $object.css({"background-position": "center"});
+                    }
+                });
+            };
 
 
     </script>

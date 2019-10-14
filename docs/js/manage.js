@@ -47,7 +47,7 @@ function fetchClaimsStaff() {
                                         "</tr><tr>" +
                                             "<td><button class='manageButton' onclick='inspect(this)'>Inspect<span class='hider'>"+ claimId+ "</span></button></td>" +
                                             "<td colspan='1' class='centerRow'>" + claimObj.email + "</td>" +
-                                            "<td class='ra'><button class='manageButton' onclick='reject(this)'>Reject<span class='hider'>"+ claimId+ "</span></button><button class='manageLeft manageButton' onclick='resolve()'>Resolve<span class='hider'>"+ claimId+ "</span></button></td>" +
+                                            "<td class='ra'><button class='manageButton' onclick='reject(this)'>Reject<span class='hider'>"+ claimId+ "</span></button><button class='manageLeft manageButton' onclick='resolve(this)'>Resolve<span class='hider'>"+ claimId + "</span></button></td>" +
                                         "</tr>" +
                                     "</table>" +
                                 "</div>" +
@@ -115,6 +115,10 @@ function fetchClaimsUser() {
 }
 
 function search() {
+
+    let claimsElements = document.getElementById('claimsInjectPoint').classList.add('hider');
+    let loaderElement = document.getElementById('claimsLoader').classList.remove('hider');
+
    let searchString =  document.getElementById('searchBarText').value;
    let filter = document.getElementById('searchFilter').value;
 
@@ -123,14 +127,19 @@ function search() {
     //TODO add validation and query code
    switch (filter) {
        case "id":
+           filterClaimsID();
            break;
        case "email":
+           filterClaimsEmail();
            break;
        case "fullName":
+           filterClaimsName();
            break;
        case "type":
+           filterClaimsType();
            break;
        case "date":
+           filterClaimsDate();
            break;
        default:
            console.log("No associated filter");
@@ -138,23 +147,28 @@ function search() {
    }
 
    function filterClaimsID() {
-
+       claimsElements.classList.remove('hider');
+       loaderElement.classList.add('hider');
    }
 
    function filterClaimsEmail() {
-
+       claimsElements.classList.remove('hider');
+       loaderElement.classList.add('hider');
    }
 
    function filterClaimsType() {
-
+       claimsElements.classList.remove('hider');
+       loaderElement.classList.add('hider');
    }
 
    function filterClaimsName() {
-
+       claimsElements.classList.remove('hider');
+       loaderElement.classList.add('hider');
    }
 
    function filterClaimsDate() {
-
+       claimsElements.classList.remove('hider');
+       loaderElement.classList.add('hider');
    }
 
 }
@@ -220,7 +234,6 @@ function resolve(claimID) {
 
     modal.style.display = "block";
 
-
     let recordID = claimID.firstChild.nextSibling.firstChild.nodeValue;
     let claim = claimRecords[recordID];
 
@@ -245,6 +258,8 @@ function reject(claimID) {
 
     let recordID = claimID.firstChild.nextSibling.firstChild.nodeValue;
     let claim = claimRecords[recordID];
+
+
 
 
     //CLOSE MODAL =>
