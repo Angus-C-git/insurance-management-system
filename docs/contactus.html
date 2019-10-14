@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/basics.css"/>
 </head>
 <body id="contact">
-<div id="loader" style="margin-left: 50%; margin-top: 15%;display: none;"></div>
+<span id="hider" class="hider">
 <div class="navBar">
         <span class="navSpanLogo">
             <img src="img/AllInsureDarkTheme.png" alt="logoAllInsure" class="Logo"/>
@@ -62,5 +62,18 @@
         </span>
     </div>
 </footer>
+</span>
+<div id="loader" style="margin-left: 50%; margin-top: 15%;display: none;"></div>
+
 </body>
+
+<script>
+    checkAuthState();
+
+    $( document ).ready(function() {
+        console.log( "ready!" );
+        document.getElementById('loader').classList.add('hider');
+        document.getElementById('hider').classList.remove('hider');
+    });
+</script>
 </html>
