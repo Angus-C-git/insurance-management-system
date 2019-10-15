@@ -113,11 +113,9 @@
                                 <td id="lodgedDate" class="head date rightAlign"></td>
                             </tr>
                             <tr>
-                                <td class="head"></td>
-                                <td class="type"><label id="claimType">Claim Type</label>
+                                <td class="type" colspan="3"><label id="claimType">Claim Type</label>
                                     <div id="progressBar">O----O----O</div> <!-- TODO: implement this -->
                                 </td>
-                                <td class="head"></td>
                             </tr>
                             <tr>
                                 <td>
@@ -175,6 +173,28 @@
                                 <td><br></td>
                             </tr>
                         </table>
+                            <hr/>
+                            <table id="approved">
+                                <tr>
+                                    <td colspan="2">We are happy to let you know that your claim has been approved!</td>
+                                </tr>
+                                <tr>
+                                    <td>Estimated Total Cover</td>
+                                    <td>*insert estimated cost here</td>
+                                </tr>
+                                <tr>
+                                    <td>Excess to be paid</td>
+                                    <td>*insert excess here</td>
+                                </tr>
+                                <tr>
+                                    <td>Date approved</td>
+                                    <td>*insert approved date</td>
+                                </tr>
+                            </table>
+                            <table id="denied">
+                                <tr><td>Unfortunately your claim was rejected.</td></tr>
+                                <tr><td>*Insert reason here*</td></tr>
+                            </table>
                     </div>
                     </div>
                 </div>
@@ -256,7 +276,7 @@
     </div>
 </footer>
 
-    <div id="loader" style="margin-left: 50%; margin-top: 15%;"></div>
+    <div id="loader"></div>
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <!-- https://jquery.com/download/ -->
