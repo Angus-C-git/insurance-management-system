@@ -701,3 +701,8 @@ input[type="checkbox"]:focus {
 .rightAlign {
   text-align: right;
 }
+
+#resolve {
+  padding: 50px;
+  margin-left: 30%;
+}
