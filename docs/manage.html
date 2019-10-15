@@ -188,19 +188,22 @@
                         <div class="headPart">
                             <table id="resolve">
                                 <tr>
-                                    <td>Estimated Total Cover</td>
-                                    <td><input id="estimatedCover" type="text"></td>
+                                    <td colspan='2' style="text-align: center; font-size: 30px;">Accept Form</td>
                                 </tr>
                                 <tr>
-                                    <td>Excess to be paid</td>
-                                    <td><input id="excess" type="text"></td>
+                                    <td class="spacing">Estimated Total Cover</td>
+                                    <td class="spacing"><input id="estimatedCover" type="text" style="width:200px;"></td>
                                 </tr>
                                 <tr>
-                                    <td>Date approved</td>
-                                    <td><input id="approvedDate" type="date"></td>
+                                    <td class="spacing">Excess to be paid</td>
+                                    <td class="spacing"><input id="excess" type="text" style="width:200px;"></td>
                                 </tr>
                                 <tr>
-                                    <td><button onclick="resolveClaim()">Submit</button></td>
+                                    <td class="spacing">Date approved</td>
+                                    <td class="spacing"><input id="approvedDate" type="date" style="width:200px;"></td>
+                                </tr>
+                                <tr class="submitRow">
+                                    <td colspan="2" class="spacing"><button onclick="resolveClaim()">Submit</button></td>
                                 </tr>
                             </table>
                         </div>
@@ -214,16 +217,20 @@
                     <!-- Modal content -->
                     <div class="modal-content">
                         <span id="rejectClose" class="close">x</span>
-                        <div class="headPart">
-                            <table>
-                                <tr>
-                                    <td>Reason:</td>
+                        <div class="cent">
+                            <table style="width:90%;">
+                                <tr class="submitRow">
+                                    <td style="font-size: 30px;">Reject Form</td>
                                 </tr>
                                 <tr>
-                                    <td><input id="reason" type="text"/></td>
+                                    <br/>
+                                    <td style="padding-bottom: 20px; font-size:15px;">Reason:</td>
                                 </tr>
                                 <tr>
-                                    <td><button onclick="rejectClaim()">Submit</button></td>
+                                    <td class=""><textarea id="reason" cols="40" rows="15"></textarea></td>
+                                </tr>
+                                <tr class="submitRow">
+                                    <td colspan="1" class="spacing"><button onclick="rejectClaim()">Submit</button></td>
                                 </tr>
                             </table>
                         </div>

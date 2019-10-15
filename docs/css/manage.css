@@ -638,7 +638,8 @@ input[type="checkbox"]:focus {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
-  height: 80%;
+  height: auto;
+  margin-bottom: 50px;
 }
 
 /* The Close Button */
@@ -704,5 +705,21 @@ input[type="checkbox"]:focus {
 
 #resolve {
   padding: 50px;
-  margin-left: 30%;
+  margin-left: 22%;
+}
+
+.spacing {
+  padding: 30px;
+}
+
+.submitRow {
+  text-align: center;
+}
+
+.cent {
+  margin-left: 10%;
+}
+
+#reason {
+  width: 100%;
 }
