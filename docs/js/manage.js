@@ -9,7 +9,7 @@ function fetchClaimsStaff() {
     //TODO staff validation
 
     //Convert search button pointer
-    document.getElementById('searchButton').onclick = fetchClaimsStaff;
+    //document.getElementById('searchButton').onclick = fetchClaimsStaff;
 
     document.getElementById('claimsInjectPoint').innerHTML = "";
 
@@ -114,7 +114,9 @@ function fetchClaimsUser() {
     });
 }
 
-function search() {
+function searchRecords() {
+
+    console.log("searching...");
 
     let claimsElements = document.getElementById('claimsInjectPoint').classList.add('hider');
     let loaderElement = document.getElementById('claimsLoader').classList.remove('hider');
@@ -147,28 +149,28 @@ function search() {
    }
 
    function filterClaimsID() {
-       claimsElements.classList.remove('hider');
-       loaderElement.classList.add('hider');
+       document.getElementById('claimsInjectPoint').classList.remove('hider');
+       document.getElementById('claimsLoader').classList.add('hider');
    }
 
    function filterClaimsEmail() {
-       claimsElements.classList.remove('hider');
-       loaderElement.classList.add('hider');
+       document.getElementById('claimsInjectPoint').classList.remove('hider');
+       document.getElementById('claimsLoader').classList.add('hider');
    }
 
    function filterClaimsType() {
-       claimsElements.classList.remove('hider');
-       loaderElement.classList.add('hider');
+       document.getElementById('claimsInjectPoint').classList.remove('hider');
+       document.getElementById('claimsLoader').classList.add('hider');
    }
 
    function filterClaimsName() {
-       claimsElements.classList.remove('hider');
-       loaderElement.classList.add('hider');
+       document.getElementById('claimsInjectPoint').classList.remove('hider');
+       document.getElementById('claimsLoader').classList.add('hider');
    }
 
    function filterClaimsDate() {
-       claimsElements.classList.remove('hider');
-       loaderElement.classList.add('hider');
+       document.getElementById('claimsInjectPoint').classList.remove('hider');
+       document.getElementById('claimsLoader').classList.add('hider');
    }
 
 }
