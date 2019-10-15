@@ -174,26 +174,29 @@
                             </tr>
                         </table>
                             <hr/>
-                            <table id="approved">
+                            <table id="approved" class="hider">
                                 <tr>
                                     <td colspan="2">We are happy to let you know that your claim has been approved!</td>
                                 </tr>
                                 <tr>
                                     <td>Estimated Total Cover</td>
-                                    <td>*insert estimated cost here</td>
+                                    <td id="estCost">*insert estimated cost here</td>
                                 </tr>
                                 <tr>
                                     <td>Excess to be paid</td>
-                                    <td>*insert excess here</td>
+                                    <td id="excessAmount">*insert excess here</td>
                                 </tr>
                                 <tr>
                                     <td>Date approved</td>
-                                    <td>*insert approved date</td>
+                                    <td id="dateApproved">*insert approved date</td>
                                 </tr>
                             </table>
-                            <table id="denied">
+                            <table id="rejected" class="hider">
                                 <tr><td>Unfortunately your claim was rejected.</td></tr>
-                                <tr><td>*Insert reason here*</td></tr>
+                                <tr><td id="rejectReason"></td></tr>
+                            </table>
+                            <table id="pending" class="hider">
+                                <tr><td>Pending Review ...</td></tr>
                             </table>
                     </div>
                     </div>

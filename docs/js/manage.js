@@ -5,6 +5,8 @@ let uid;
 //Holds all claims keyed by claimID as fetched from the db
 let claimRecords = {};
 
+let claimStatus = {};
+
 function fetchClaimsStaff() {
     //TODO staff validation
 
@@ -25,6 +27,7 @@ function fetchClaimsStaff() {
                     //console.log(claim.id);
                     searchRoot.doc(doc.id).collection('claims').doc(claim.id).get().then(function (claimData) {
                         let claimObjPre = claimData.data();
+                        console.log(claimObjPre);
                         let claimObj = claimObjPre.claim;
                         let claimDate = claimObj.claimDate.toDate();
 
@@ -36,7 +39,7 @@ function fetchClaimsStaff() {
                                     "<table class='manageBox'>" +
                                         "<tr>" +
                                             "<td class='std id'>#" + claim.id + "</td>" +
-                                            "<td class='centerRow' rowspan='2'>" + claimDate.type +"<br/>" +
+                                            "<td class='centerRow' rowspan='2'>" + claimObj.type[0].toUpperCase() + claimObj.type.slice(1, ) + ' Insurance Claim' + "<br/>" +
                                                 "O-----O-----O" +
                                             "</td>" +
                                             "<td class='std ra id'>" + claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes() + " </td>" +//TODO
@@ -54,6 +57,11 @@ function fetchClaimsStaff() {
                             "</div>";
 
                         claimRecords[claimId] = claimObj;
+
+                        if (claimObjPre.outcome !== undefined){
+                            claimStatus[claimId] = claimObjPre.outcome;
+                        }
+
                     })
                 })
             });
@@ -88,7 +96,7 @@ function fetchClaimsUser() {
                             "<table class='manageBox'>" +
                                 "<tr>" +
                                     "<td class='std id'>#" + claim.id + "</td>" +
-                                    "<td class='centerRow' rowspan='2'>" + claimDate.type + "<br/>" +
+                                    "<td class='centerRow' rowspan='2'>" + claimObj.type[0].toUpperCase() + claimObj.type.slice(1, ) + ' Insurance Claim' + "<br/>" +
                                         "O-----O-----O" +
                                     "<td class='std ra id'>" + claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes() + " </td>" +//TODO
                                 "</tr><tr></tr><tr>" +
@@ -188,9 +196,18 @@ function inspect(claimID) {
     let recordID = claimID.firstChild.nextSibling.firstChild.nodeValue;
     let claim = claimRecords[recordID];
 
+    let claimStatusObj = claimStatus[recordID];
+
+    /*
+     let claimObj = claim.data().claim;
+                let claimDate = claimObj.claimDate.toDate();
+     */
+
+    let date = claim.claimDate.toDate();
+
     document.getElementById('caseNumber').innerHTML = recordID;
-    /*document.getElementById('lodgedDate').innerHTML = claim.claimDate.getDate() + "/" + claim.claimDate.getMonth() + "/" + claim.claimDate.getFullYear() + "   " + claim.claimDate.getHours() + ":" + claim.claimDate.getMinutes();*/
-    document.getElementById('claimType').innerHTML = claim.type;
+    document.getElementById('lodgedDate').innerHTML = date.getDate() + "/" + date.getMonth()+ "/" + date.getFullYear() + " " + date.getHours() + ":" + date.getMinutes();
+    document.getElementById('claimType').innerHTML = claim.type[0].toUpperCase() + claim.type.slice(1, ) + ' Insurance Claim';
     document.getElementById('name').innerHTML = claim.fullName;
     document.getElementById('email').innerHTML = claim.email;
     document.getElementById('incidentDate').innerHTML = claim.occurrenceDate;
@@ -215,6 +232,31 @@ function inspect(claimID) {
         default:
             console.log('no associated type');
             break;
+    }
+
+    document.getElementById('approved').classList.add('hider');
+    document.getElementById('pending').classList.add('hider');
+    document.getElementById('rejected').classList.add('hider');
+
+
+    if (claimStatusObj !== undefined) {
+        switch (claimStatusObj.status) {
+            case "Rejected":
+                document.getElementById('rejectReason').innerHTML = claimStatusObj.reason;
+                document.getElementById('rejected').classList.remove('hider');
+                break;
+            case "Accepted":
+                document.getElementById('estCost').innerHTML = claimStatusObj.estimatedCover;
+                document.getElementById('excessAmount').innerHTML = claimStatusObj.excess;
+                document.getElementById('dateApproved').innerHTML = claimStatusObj.approvalDate;
+                document.getElementById('approved').classList.remove('hider');
+                break;
+            default:
+                document.getElementById('pending').classList.remove('hider');
+                break;
+        }
+    } else {
+        document.getElementById('pending').classList.remove('hider');
     }
 
     //CLOSE MODAL =>
@@ -286,7 +328,7 @@ function rejectClaim() {
 
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            // User is signed in.
+            // User is signed in
 
             //PERFORM DB SEARCH FOR CLAIM ID
 
