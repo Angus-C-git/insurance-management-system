@@ -37,7 +37,7 @@ function fetchClaimsStaff() {
                                         "<tr>" +
                                             "<td class='std id'>#" + claim.id + "</td>" +
                                             "<td class='centerRow' rowspan='2'>" + claimDate.type +"<br/>" +
-
+                                                "O-----O-----O" +
                                             "</td>" +
                                             "<td class='std ra id'>" + claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes() + " </td>" +//TODO
                                         "</tr><tr></tr><tr>" +
@@ -89,7 +89,7 @@ function fetchClaimsUser() {
                                 "<tr>" +
                                     "<td class='std id'>#" + claim.id + "</td>" +
                                     "<td class='centerRow' rowspan='2'>" + claimDate.type + "<br/>" +
-
+                                        "O-----O-----O" +
                                     "<td class='std ra id'>" + claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes() + " </td>" +//TODO
                                 "</tr><tr></tr><tr>" +
                                     "<td colspan='3' rowspan='2' class='centerRow name'>" + claimObj.fullName + "</td>" +
@@ -232,7 +232,7 @@ function inspect(claimID) {
 
 function resolve(claimID) {
     let modal = document.getElementById("resolveModal");
-    let span = document.getElementsByClassName("close")[0];
+    let resolveClose = document.getElementById("resolveClose");
 
     modal.style.display = "block";
 
@@ -240,7 +240,7 @@ function resolve(claimID) {
     let claim = claimRecords[recordID];
 
     //CLOSE MODAL =>
-    span.onclick = function() {
+    resolveClose.onclick = function() {
         modal.style.display = "none";
     };
 
@@ -254,7 +254,7 @@ function resolve(claimID) {
 
 function reject(claimID) {
     let modal = document.getElementById("rejectModal");
-    let span = document.getElementsByClassName("close")[0];
+    let rejectClose = document.getElementById("rejectClose");
 
     modal.style.display = "block";
 
@@ -265,7 +265,7 @@ function reject(claimID) {
 
 
     //CLOSE MODAL =>
-    span.onclick = function() {
+    rejectClose.onclick = function() {
         modal.style.display = "none";
     };
 
@@ -275,4 +275,67 @@ function reject(claimID) {
             modal.style.display = "none";
         }
     }
+}
+
+function rejectClaim() {
+    let reason = document.getElementById('reason').value;
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+
+            //PERFORM DB SEARCH FOR CLAIM ID
+
+            let searchRoot = db.collection('users'); //TODO form correct path
+
+            searchRoot.get().then(function (data) {
+
+            }).catch(function (error) {
+                console.log(error);
+            });
+
+            docRef.get().then(function(doc) {
+                //console.log("Document data:", doc.data());
+                docRef.set({
+                    outcome: {
+
+                    }
+                }).then(function () {
+                    console.log("result lodged");
+                    window.location.replace('manage.html');
+                });
+            }).catch(function(error) {
+                console.log("Error getting document:", error);
+            });
+        }
+    });
+    
+}
+
+function resolveClaim() {
+    let estimatedCover = document.getElementById('estimatedCover').value;
+    let excess = document.getElementById('excess').value;
+    let approvalDate = document.getElementById('approvedDate').value;
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+            let userId = String(user.uid);
+
+            let docRef = db.collection('users').doc(userId).collection('claims').doc();
+            docRef.get().then(function(doc) {
+                //console.log("Document data:", doc.data());
+                docRef.set({
+                    outcome: {
+
+                    }
+                }).then(function () {
+                    console.log("result lodged");
+                    window.location.replace('manage.html');
+                });
+            }).catch(function(error) {
+                console.log("Error getting document:", error);
+            });
+        }
+    });
 }

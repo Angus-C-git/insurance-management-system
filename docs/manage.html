@@ -184,23 +184,23 @@
 
                     <!-- Modal content -->
                     <div class="modal-content">
-                        <span class="close">&times;</span>
+                        <span id="resolveClose" class="close">&times;</span>
                         <div class="headPart">
                             <table id="resolve">
                                 <tr>
-                                    <td>Estimated Total Cost</td>
-                                    <td><input type="text"></td>
+                                    <td>Estimated Total Cover</td>
+                                    <td><input id="estimatedCover" type="text"></td>
                                 </tr>
                                 <tr>
                                     <td>Excess to be paid</td>
-                                    <td><input type="text"></td>
+                                    <td><input id="excess" type="text"></td>
                                 </tr>
                                 <tr>
                                     <td>Date approved</td>
-                                    <td><input type="date"></td>
+                                    <td><input id="approvedDate" type="date"></td>
                                 </tr>
                                 <tr>
-                                    <td><button>Submit</button></td>
+                                    <td><button onclick="resolveClaim()">Submit</button></td>
                                 </tr>
                             </table>
                         </div>
@@ -213,17 +213,17 @@
 
                     <!-- Modal content -->
                     <div class="modal-content">
-                        <span class="close">&times;</span>
+                        <span id="rejectClose" class="close">x</span>
                         <div class="headPart">
                             <table>
                                 <tr>
                                     <td>Reason:</td>
                                 </tr>
                                 <tr>
-                                    <td><input type="text"/></td>
+                                    <td><input id="reason" type="text"/></td>
                                 </tr>
                                 <tr>
-                                    <td><button>Submit</button></td>
+                                    <td><button onclick="rejectClaim()">Submit</button></td>
                                 </tr>
                             </table>
                         </div>
