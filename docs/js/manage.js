@@ -230,14 +230,16 @@ function inspect(claimID) {
     }
 }
 
+let currentRecordID;
+
 function resolve(claimID) {
     let modal = document.getElementById("resolveModal");
     let resolveClose = document.getElementById("resolveClose");
 
     modal.style.display = "block";
 
-    let recordID = claimID.firstChild.nextSibling.firstChild.nodeValue;
-    let claim = claimRecords[recordID];
+    currentRecordID = claimID.firstChild.nextSibling.firstChild.nodeValue;
+    let claim = claimRecords[currentRecordID];
 
     //CLOSE MODAL =>
     resolveClose.onclick = function() {
@@ -258,10 +260,10 @@ function reject(claimID) {
 
     modal.style.display = "block";
 
-    let recordID = claimID.firstChild.nextSibling.firstChild.nodeValue;
-    let claim = claimRecords[recordID];
+    currentRecordID = claimID.firstChild.nextSibling.firstChild.nodeValue;
+    let claim = claimRecords[currentRecordID];
 
-
+    console.log("ACK recordID => ", currentRecordID);
 
 
     //CLOSE MODAL =>
@@ -280,32 +282,37 @@ function reject(claimID) {
 function rejectClaim() {
     let reason = document.getElementById('reason').value;
 
+    console.log("ACK recordID => ", currentRecordID);
+
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             // User is signed in.
 
             //PERFORM DB SEARCH FOR CLAIM ID
 
-            let searchRoot = db.collection('users'); //TODO form correct path
+            let searchRoot = db.collection('users');
 
             searchRoot.get().then(function (data) {
+                data.forEach(function (user) {
+                    console.log("User =>", user.id);
+                    searchRoot.doc(user.id).collection('claims').get().then(function (claims) {
+                        claims.forEach(function (claim) {
+                            if (claim.id === currentRecordID){
+                                console.log("record located => ", claim.id);
+                                console.log("writing outcome...");
 
+                                searchRoot.doc(user.id).collection('claims').doc(claim.id).set({
+                                    outcome: {
+                                        status: "Rejected",
+                                        reason: reason
+                                    }
+                                }, { merge: true })
+                            }
+                        })
+                    })
+                })
             }).catch(function (error) {
                 console.log(error);
-            });
-
-            docRef.get().then(function(doc) {
-                //console.log("Document data:", doc.data());
-                docRef.set({
-                    outcome: {
-
-                    }
-                }).then(function () {
-                    console.log("result lodged");
-                    window.location.replace('manage.html');
-                });
-            }).catch(function(error) {
-                console.log("Error getting document:", error);
             });
         }
     });
@@ -320,21 +327,33 @@ function resolveClaim() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             // User is signed in.
-            let userId = String(user.uid);
 
-            let docRef = db.collection('users').doc(userId).collection('claims').doc();
-            docRef.get().then(function(doc) {
-                //console.log("Document data:", doc.data());
-                docRef.set({
-                    outcome: {
+            //PERFORM DB SEARCH FOR CLAIM ID
 
-                    }
-                }).then(function () {
-                    console.log("result lodged");
-                    window.location.replace('manage.html');
-                });
-            }).catch(function(error) {
-                console.log("Error getting document:", error);
+            let searchRoot = db.collection('users');
+
+            searchRoot.get().then(function (data) {
+                data.forEach(function (user) {
+                    searchRoot.doc(user.id).collection('claims').get().then(function (claims) {
+                        claims.forEach(function (claim) {
+                            if (claim.id === currentRecordID){
+                                console.log("record located => ", claim.id);
+                                console.log("writing outcome...");
+
+                                searchRoot.doc(user.id).collection('claims').doc(claim.id).set({
+                                    outcome: {
+                                        status: "Accepted",
+                                        estimatedCover: estimatedCover,
+                                        excess: excess,
+                                        approvalDate: approvalDate
+                                    }
+                                }, { merge: true })
+                            }
+                        })
+                    })
+                })
+            }).catch(function (error) {
+                console.log(error);
             });
         }
     });
