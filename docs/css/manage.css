@@ -604,6 +604,7 @@ input[type="checkbox"]:focus {
 }
 .id {
   color: grey;
+  font-size: 20px;
 }
 
 .reduceSize {
@@ -722,4 +723,88 @@ input[type="checkbox"]:focus {
 
 #reason {
   width: 100%;
+}
+
+
+.loadingBarInspect {
+  display: block;
+  position: relative;
+  width: 450px;
+  height: 20px;
+  margin: 20px 33%;
+}
+.contLoadingBarInspect {
+  position: relative;
+  width: 446px;
+  margin-left: 2px;
+  height: 10px;
+  background: #808080;
+}
+.progressBarInspect {
+  width: 100%;
+  height: 40px;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  margin-top: -20px;
+}
+.progressBarInspect .contLoadingBarInspect {
+  background: lawngreen;
+  height: 15px;
+  margin-top: 10px;
+  width: 446px;
+  margin-left: 9px;
+}
+.checkpointInspect {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background: #808080;
+  margin-left: -3px;
+}
+.progressBarInspect .checkpointInspect {
+  background: lawngreen;
+  width: 36px;
+  height: 36px;
+  margin-left: -10px;
+}
+.checkpointInspect:nth-child(2) {
+  left: 50%;
+  margin-left: -7px;
+}
+.progressBarInspect .checkpointInspect:nth-child(2) {
+  margin-left: -14px;
+}
+.checkpointInspect:last-child {
+  left: 100%;
+  margin-left: -25px;
+}
+.progressBarInspect .checkpointInspect:last-child {
+  margin-left: -32px;
+}
+/* pure demonstrative */
+.checkpointInspect {
+  text-align: center;
+  font-size: 11px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  line-height: 34px;
+  padding-left: 2px;
+  color: black;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+.progressInspect .checkpointInspect {
+  line-height: 31px;
+  padding-left: 2px;
+  color: #000;
+}
+
+.progressBarInspect {
+  width: 57%;
 }

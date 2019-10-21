@@ -40,7 +40,20 @@ function fetchClaimsStaff() {
                                         "<tr>" +
                                             "<td class='std id'>#" + claim.id + "</td>" +
                                             "<td class='centerRow' rowspan='2'>" + claimObj.type[0].toUpperCase() + claimObj.type.slice(1, ) + ' Insurance Claim' + "<br/>" +
-                                                "O-----O-----O" +
+                            "<div class='loadingBar'>" +
+                            "<div class='contLoadingBar'>" +
+                            "<div class='checkpoint'></div>" +
+                            "<div class='checkpoint'></div>" +
+                            "<div class='checkpoint'></div>" +
+                            "</div>" +
+                            "<div class='progressBar'>" +
+                            "<div class='contLoadingBar'>" +
+                            "<div class='checkpoint'></div>" +
+                            "<div class='checkpoint'></div>" +
+                            "<div class='checkpoint'></div>" +
+                            "</div>" +
+                            "</div>" +
+                            "</div>" +
                                             "</td>" +
                                             "<td class='std ra id'>" + claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes() + " </td>" +//TODO
                                         "</tr><tr></tr><tr>" +
@@ -97,7 +110,20 @@ function fetchClaimsUser() {
                                 "<tr>" +
                                     "<td class='std id'>#" + claim.id + "</td>" +
                                     "<td class='centerRow' rowspan='2'>" + claimObj.type[0].toUpperCase() + claimObj.type.slice(1, ) + ' Insurance Claim' + "<br/>" +
-                                        "O-----O-----O" +
+                    "<div class='loadingBar'>" +
+                    "<div class='contLoadingBar'>" +
+                    "<div class='checkpoint'></div>" +
+                    "<div class='checkpoint'></div>" +
+                    "<div class='checkpoint'></div>" +
+                    "</div>" +
+                    "<div class='progressBar'>" +
+                    "<div class='contLoadingBar'>" +
+                    "<div class='checkpoint'></div>" +
+                    "<div class='checkpoint'></div>" +
+                    "<div class='checkpoint'></div>" +
+                    "</div>" +
+                    "</div>" +
+                    "</div>" +
                                     "<td class='std ra id'>" + claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes() + " </td>" +//TODO
                                 "</tr><tr></tr><tr>" +
                                     "<td colspan='3' rowspan='2' class='centerRow name'>" + claimObj.fullName + "</td>" +
