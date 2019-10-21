@@ -57,7 +57,7 @@ function fetchClaimsStaff() {
                             "</div>" +
                             "</div>" +
                                             "</td>" +
-                                            "<td class='std ra id'>" + claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes() + " </td>" +//TODO
+                                            "<td class='std ra id'>" + /*claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes()*/ moment(claimDate).format('DD/MM/YYYY h:mm a')+ " </td>" +//TODO
                                         "</tr><tr></tr><tr>" +
                                             "<td colspan='3' rowspan='2' class='centerRow name'>" + claimObj.fullName + "</td>" +
                                         "</tr><tr>" +
@@ -65,7 +65,7 @@ function fetchClaimsStaff() {
                                         "</tr><tr>" +
                                             "<td><button class='manageButton' onclick='inspect(this)'>Inspect<span class='hider'>"+ claimId+ "</span></button></td>" +
                                             "<td colspan='1' class='centerRow'>" + claimObj.email + "</td>" +
-                                            "<td class='ra'><button class='manageButton' onclick='reject(this)'>Reject<span class='hider'>"+ claimId+ "</span></button><button class='manageLeft manageButton' onclick='resolve(this)'>Resolve<span class='hider'>"+ claimId + "</span></button></td>" +
+                                            "<td class='ra'><button class='manageButton' onclick='reject(this)'>Reject<span class='hider btn-large btn-large-white px-4 black-text rounded-0'>"+ claimId+ "</span></button><button class='manageLeft manageButton btn-large btn-large-white px-4 black-text rounded-0' onclick='resolve(this)'>Resolve<span class='hider'>"+ claimId + "</span></button></td>" +
                                         "</tr>" +
                                     "</table>" +
                                 "</div>" +
@@ -128,13 +128,13 @@ function fetchClaimsUser() {
                     "</div>" +
                     "</div>" +
                     "</div>" +
-                                    "<td class='std ra id'>" + claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes() + " </td>" +//TODO
+                                    "<td class='std ra id'>" + /*claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes()*/ moment(claimDate).format('DD/MM/YYYY h:mm a') + " </td>" +//TODO
                                 "</tr><tr></tr><tr>" +
                                     "<td colspan='3' rowspan='2' class='centerRow name'>" + claimObj.fullName + "</td>" +
                                 "</tr><tr>" +
                                     "<td colspan='3'></td>" +
                                 "</tr><tr>" +
-                                    "<td><button class='manageButton' onclick='inspect(this)'>Inspect<span class='hider'>"+ claimId+ "</span></button></td>" +
+                                    "<td><button class='manageButton waves-effect btn-large btn-large-white px-4 black-text rounded-0, button' onclick='inspect(this)'>Inspect<span class='hider'>"+ claimId+ "</span></button></td>" +
                                     "<td colspan='1' class='centerRow'>" + claimObj.email + "</td>" +
                                     "<td class='ra'></td>" +
                                 "</tr>" +
@@ -236,7 +236,7 @@ function inspect(claimID) {
     let date = claim.claimDate.toDate();
 
     document.getElementById('caseNumber').innerHTML = recordID;
-    document.getElementById('lodgedDate').innerHTML = date.getDate() + "/" + date.getMonth()+ "/" + date.getFullYear() + " " + date.getHours() + ":" + date.getMinutes();
+    document.getElementById('lodgedDate').innerHTML = moment(date).format('MM/DD/YYYY h:mm a');
     document.getElementById('claimType').innerHTML = claim.type[0].toUpperCase() + claim.type.slice(1, ) + ' Insurance Claim';
     document.getElementById('name').innerHTML = claim.fullName;
     document.getElementById('email').innerHTML = claim.email;
@@ -258,6 +258,8 @@ function inspect(claimID) {
             break;
         case "personal":
             document.getElementById('personalClaim').classList.remove('hider');
+            document.getElementById('personalClaimItems').classList.remove('hider');
+            document.getElementById('lostItems').innerHTML = claim.lostItems;
             break;
         default:
             console.log('no associated type');

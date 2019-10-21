@@ -808,3 +808,43 @@ input[type="checkbox"]:focus {
 .progressBarInspect {
   width: 25%;
 }
+
+.statusText {
+  font-size: 20px;
+}
+
+.approvedTextResult {
+  font-size: 15px;
+}
+
+.approvedText {
+  font-size: 18px;
+}
+
+.resolveText {
+  font-size: 20px;
+}
+
+.btn-large {
+  padding: 0 77px;
+  border-radius: 5px;
+  background-color: black;
+  text-transform: capitalize;
+  font-size: 1rem;
+}
+
+.btn-large:hover,
+.btn-large:focus {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.btn-large-white {
+  background-color: white;
+  color: black;
+  font-size: 1.1rem;
+}
+.btn-large-white:hover,
+.btn-large-white:focus {
+  background-color: #ccc;
+  color: black;
+}

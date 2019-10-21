@@ -86,7 +86,7 @@
                             </tr>
                             <tr class="searchSubmitLine">
                                 <!-- changes based on authentication-->
-                                <td><br/><button id="searchButton" onclick="searchRecords()" class="submitButton">Search</button></td>
+                                <td><br/><button id="searchButton" onclick="searchRecords()" class="btn-large btn-large-white px-4 black-text rounded-0">Search</button></td>
                             </tr>
                         </table>
 
@@ -180,7 +180,7 @@
                             <tr id="personalClaim" class="hider">
                                 <td class="claimDetail size">Lost Items</td>
                             </tr>
-                            <tr>
+                            <tr id="personalClaimItems" class="hider">
                                 <td colspan="2" class="borderDetail" id="lostItems"></td>
                             </tr>
                             <tr>
@@ -193,27 +193,27 @@
                             <hr/>
                             <table id="approved" class="hider">
                                 <tr>
-                                    <td colspan="2">We are happy to let you know that your claim has been approved!</td>
+                                    <td class="statusText" colspan="2">We are happy to let you know that your claim has been approved!</td>
                                 </tr>
                                 <tr>
-                                    <td>Estimated Total Cover</td>
-                                    <td id="estCost">*insert estimated cost here</td>
+                                    <td class="approvedText">Estimated Total Cover</td>
+                                    <td id="estCost" class="approvedTextResult"></td>
                                 </tr>
                                 <tr>
-                                    <td>Excess to be paid</td>
-                                    <td id="excessAmount">*insert excess here</td>
+                                    <td class="approvedText">Excess to be paid</td>
+                                    <td id="excessAmount" class="approvedTextResult"></td>
                                 </tr>
                                 <tr>
-                                    <td>Date approved</td>
-                                    <td id="dateApproved">*insert approved date</td>
+                                    <td class="approvedText">Date approved</td>
+                                    <td id="dateApproved" class="approvedTextResult"></td>
                                 </tr>
                             </table>
                             <table id="rejected" class="hider">
-                                <tr><td>Unfortunately your claim was rejected.</td></tr>
+                                <tr><td class="statusText">Unfortunately your claim was rejected.</td></tr>
                                 <tr><td id="rejectReason"></td></tr>
                             </table>
                             <table id="pending" class="hider">
-                                <tr><td>Pending Review ...</td></tr>
+                                <tr><td class="statusText">Pending Review ...</td></tr>
                             </table>
                     </div>
                     </div>
@@ -231,19 +231,19 @@
                                     <td colspan='2' style="text-align: center; font-size: 30px;">Accept Form</td>
                                 </tr>
                                 <tr>
-                                    <td class="spacing">Estimated Total Cover</td>
+                                    <td class="spacing resolveText">Estimated Total Cover</td>
                                     <td class="spacing"><input id="estimatedCover" type="text" style="width:200px;"></td>
                                 </tr>
                                 <tr>
-                                    <td class="spacing">Excess to be paid</td>
+                                    <td class="spacing resolveText">Excess to be paid</td>
                                     <td class="spacing"><input id="excess" type="text" style="width:200px;"></td>
                                 </tr>
                                 <tr>
-                                    <td class="spacing">Date approved</td>
+                                    <td class="spacing resolveText">Date approved</td>
                                     <td class="spacing"><input id="approvedDate" type="date" style="width:200px;"></td>
                                 </tr>
                                 <tr class="submitRow">
-                                    <td colspan="2" class="spacing"><button onclick="resolveClaim()">Submit</button></td>
+                                    <td colspan="2" class="spacing"><button class="waves-effect btn-large btn-large-white px-4 black-text rounded-0" onclick="resolveClaim()">Submit</button></td>
                                 </tr>
                             </table>
                         </div>
@@ -270,7 +270,7 @@
                                     <td class=""><textarea id="reason" cols="40" rows="15"></textarea></td>
                                 </tr>
                                 <tr class="submitRow">
-                                    <td colspan="1" class="spacing"><button onclick="rejectClaim()">Submit</button></td>
+                                    <td colspan="1" class="spacing"><button class="btn-large btn-large-white px-4 black-text rounded-0" onclick="rejectClaim()">Submit</button></td>
                                 </tr>
                             </table>
                         </div>
