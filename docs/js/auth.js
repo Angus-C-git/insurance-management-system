@@ -38,7 +38,7 @@ function checkAuthState(nonAccessPage) {
         } else {
             console.log("Signed Out");
             if (nonAccessPage === "yes"){
-                window.location.replace("/insurance-managment-sytem/");
+                window.location.replace("/insurance-management-system/");
             }
         }
     });

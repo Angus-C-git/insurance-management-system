@@ -65,7 +65,7 @@ function fetchClaimsStaff() {
                                         "</tr><tr>" +
                                             "<td><button class='manageButton btn-large btn-large-white px-4 black-text rounded-0' onclick='inspect(this)'>Inspect<span class='hider'>"+ claimId+ "</span></button></td>" +
                                             "<td colspan='1' class='centerRow'>" + claimObj.email + "</td>" +
-                                            "<td class='ra'><button class='manageButton btn-large btn-large-white px-4 black-text rounded-0geButton' onclick='reject(this)'>Reject<span class='hider'>"+ claimId+ "</span></button><button class='manageLeft manageButton btn-large btn-large-white px-4 black-text rounded-0' onclick='resolve(this)'>Resolve<span class='hider'>"+ claimId + "</span></button></td>" +
+                                            "<td class='ra'><button class='manageButton btn-large btn-large-white px-4 black-text rounded-0' onclick='reject(this)'>Reject<span class='hider'>"+ claimId+ "</span></button><button class='manageLeft manageButton btn-large btn-large-white px-4 black-text rounded-0' onclick='resolve(this)'>Resolve<span class='hider'>"+ claimId + "</span></button></td>" +
                                         "</tr>" +
                                     "</table>" +
                                 "</div>" +

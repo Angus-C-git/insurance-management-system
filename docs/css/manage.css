@@ -590,8 +590,9 @@ input[type="checkbox"]:focus {
 .manageButton {
   height: 40px;
   width: 110px;
-  font-weight: bold;
+  font-weight: normal;
   border-radius: 3px;
+  text-align: center;
 }
 
 .manageLeft {
