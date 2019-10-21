@@ -218,6 +218,9 @@
     padding-left: 2px;
     color: #000;
 }
-.progressBar {
-    width: 60%;
+
+#occurrenceDate, #registrationExpiry{
+    background-color: white;
+    padding-left: 5px;
+    border-radius: 7px;
 }

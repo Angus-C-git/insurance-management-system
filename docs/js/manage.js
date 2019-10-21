@@ -32,6 +32,8 @@ function fetchClaimsStaff() {
                         let claimDate = claimObj.claimDate.toDate();
 
                         let claimId = claim.id;
+
+                        let currentProgress = 25;
                         //console.log(claimObj.additionalInfo);
                         document.getElementById('claimsInjectPoint').innerHTML +=
                             "<div class='tm-col tm-col-span'>" +
@@ -46,7 +48,7 @@ function fetchClaimsStaff() {
                             "<div class='checkpoint'></div>" +
                             "<div class='checkpoint'></div>" +
                             "</div>" +
-                            "<div class='progressBar'>" +
+                            "<div class='progressBar' style='width:" + currentProgress + ">" +
                             "<div class='contLoadingBar'>" +
                             "<div class='checkpoint'></div>" +
                             "<div class='checkpoint'></div>" +
@@ -102,6 +104,8 @@ function fetchClaimsUser() {
                 let claimDate = claimObj.claimDate.toDate();
 
                 let claimId = claim.id;
+
+                let currentProgress = 110;
                 //onload="this.width=screenWidth;"
                 document.getElementById('claimsInjectPoint').innerHTML +=
                     "<div class='tm-col tm-col-span'>" +
@@ -116,7 +120,7 @@ function fetchClaimsUser() {
                     "<div class='checkpoint'></div>" +
                     "<div class='checkpoint'></div>" +
                     "</div>" +
-                    "<div class='progressBar'>" +
+                    "<div class='progressBar' style='width:" + currentProgress + "%'>" +
                     "<div class='contLoadingBar'>" +
                     "<div class='checkpoint'></div>" +
                     "<div class='checkpoint'></div>" +

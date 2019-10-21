@@ -737,7 +737,7 @@ input[type="checkbox"]:focus {
   position: relative;
   width: 446px;
   margin-left: 2px;
-  height: 10px;
+  height: 15px;
   background: #808080;
 }
 .progressBarInspect {
@@ -806,5 +806,5 @@ input[type="checkbox"]:focus {
 }
 
 .progressBarInspect {
-  width: 57%;
+  width: 25%;
 }
