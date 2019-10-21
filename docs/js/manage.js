@@ -105,7 +105,7 @@ function fetchClaimsUser() {
 
                 let claimId = claim.id;
 
-                let currentProgress = 110;
+                let currentProgress = 15;
                 //onload="this.width=screenWidth;"
                 document.getElementById('claimsInjectPoint').innerHTML +=
                     "<div class='tm-col tm-col-span'>" +
