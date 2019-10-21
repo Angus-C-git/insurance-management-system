@@ -278,8 +278,8 @@ function inspect(claimID) {
                 document.getElementById('rejected').classList.remove('hider');
                 break;
             case "Accepted":
-                document.getElementById('estCost').innerHTML = claimStatusObj.estimatedCover;
-                document.getElementById('excessAmount').innerHTML = claimStatusObj.excess;
+                document.getElementById('estCost').innerHTML = "$" + claimStatusObj.estimatedCover;
+                document.getElementById('excessAmount').innerHTML = "$" + claimStatusObj.excess;
                 document.getElementById('dateApproved').innerHTML = claimStatusObj.approvalDate;
                 document.getElementById('approved').classList.remove('hider');
                 break;
