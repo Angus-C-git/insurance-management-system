@@ -43,19 +43,19 @@ function fetchClaimsStaff() {
                                             "<td class='std id'>#" + claim.id + "</td>" +
                                             "<td class='centerRow' rowspan='2'>" + claimObj.type[0].toUpperCase() + claimObj.type.slice(1, ) + ' Insurance Claim' + "<br/>" +
                             "<div class='loadingBar'>" +
-                            "<div class='contLoadingBar'>" +
-                            "<div class='checkpoint'></div>" +
-                            "<div class='checkpoint'></div>" +
-                            "<div class='checkpoint'></div>" +
-                            "</div>" +
-                            "<div class='progressBar' style='width:" + currentProgress + ">" +
-                            "<div class='contLoadingBar'>" +
-                            "<div class='checkpoint'></div>" +
-                            "<div class='checkpoint'></div>" +
-                            "<div class='checkpoint'></div>" +
-                            "</div>" +
-                            "</div>" +
-                            "</div>" +
+                    "<div class='contLoadingBar'>" +
+                    "<div class='checkpoint'></div>" +
+                    "<div class='checkpoint'></div>" +
+                    "<div class='checkpoint'></div>" +
+                    "</div>" +
+                    "<div class='progressBar' style='width:" + currentProgress + "%'>" +
+                    "<div class='contLoadingBar'>" +
+                    "<div class='checkpoint'></div>" +
+                    "<div class='checkpoint'></div>" +
+                    "<div class='checkpoint'></div>" +
+                    "</div>" +
+                    "</div>" +
+                    "</div>" +
                                             "</td>" +
                                             "<td class='std ra id'>" + /*claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes()*/ moment(claimDate).format('DD/MM/YYYY h:mm a')+ " </td>" +//TODO
                                         "</tr><tr></tr><tr>" +
