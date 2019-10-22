@@ -32,7 +32,7 @@ function checkAuthState(nonAccessPage) {
                console.log(data.data());
                 if (data.data() !== undefined){
                     console.log("IS STAFF => ", user.uid);
-                    document.getElementById('lodgeNavElement').classList.add('hider');
+                    document.getElementById('lodgeHider').classList.add('hider');
                     fetchClaimsStaff();
                 } else {fetchClaimsUser()}
             });
