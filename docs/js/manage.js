@@ -335,7 +335,7 @@ function inspect(claimID) {
     if (claim.status === "Rejected"){
         console.log("Rejected");
         document.getElementById('progressBarIns').style.width = '110%';
-        document.getElementById('progressBarIns').style.background = '#D50000';
+        document.getElementById('contLoadingBarInspect').style.background = '#D50000';
         //document.getElementById('1').style.background = '#D50000';
         //document.getElementById('2').style.background = '#D50000';
         //document.getElementById('3').style.background = '#D50000';
