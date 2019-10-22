@@ -286,6 +286,7 @@ function inspect(claimID) {
 
     let claimStatusObj = claimStatus[recordID];
 
+
     if (claim.status === "Pending"){
         console.log("Pending");
         document.getElementById('progressBarIns').style.width = '60%';
@@ -306,7 +307,7 @@ function inspect(claimID) {
                         searchRoot.doc(user.id).collection('claims').get().then(function (claims) {
                             claims.forEach(function (claim) {
                                 console.log("Claim =>", claim.id);
-                                if (claim.id === currentRecordID){
+                                if (claim.id === recordID){
                                     console.log("record located => ", claim.id);
                                     console.log("writing status...");
                                     searchRoot.doc(user.id).collection('claims').doc(claim.id).set({
