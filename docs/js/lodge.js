@@ -32,6 +32,7 @@ function writeClaim() {
                         let registrationExpiry = document.getElementById('registrationExpiry').value;
                         docRef.set({
                             claim: {
+                                status: "Pending",
                                 type: type,
                                 claimDate: firebase.firestore.FieldValue.serverTimestamp(),
                                 fullName: fullName,
@@ -57,6 +58,7 @@ function writeClaim() {
 
                         docRef.set({
                             claim: {
+                                status: "Pending",
                                 type: type,
                                 claimDate: firebase.firestore.FieldValue.serverTimestamp(),
                                 fullName: fullName,
@@ -79,6 +81,7 @@ function writeClaim() {
                         let lostItems = document.getElementById('lostItems').value;
                         docRef.set({
                             claim: {
+                                status: "Pending",
                                 type: type,
                                 claimDate: firebase.firestore.FieldValue.serverTimestamp(),
                                 fullName: fullName,
