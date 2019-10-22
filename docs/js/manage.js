@@ -17,7 +17,7 @@ function fetchClaimsStaff() {
 
     let searchRoot = db.collection('users');
 
-    let colorVal = 'lawngreen';
+    let colorVal = 'rgb(0, 166, 90)';
 
     console.log("attempting fetch staff...");
     searchRoot.get().then(function (querySnapshot) {
@@ -37,7 +37,7 @@ function fetchClaimsStaff() {
                         let claimId = claim.id;
 
                         let currentProgress = 25;
-                        colorVal = 'lawngreen';
+                        colorVal = 'rgb(0, 166, 90)';
 
 
                         //TODO check progress
@@ -47,7 +47,7 @@ function fetchClaimsStaff() {
                             if (outcomeObj.status === "Accepted"){
                                 console.log("Accepted");
                                 currentProgress = 120;
-                                colorVal = 'lawngreen'
+                                colorVal = 'rgb(0, 166, 90)'
 
                                 //document.getElementById('loadingBarInspect').style.background = 'lawngreen';
                             }
@@ -55,7 +55,7 @@ function fetchClaimsStaff() {
                             if (outcomeObj.status === "Rejected"){
                                 console.log("Rejected");
                                 currentProgress = 120;
-                                colorVal = 'red';
+                                colorVal = '#D50000';
                                 //document.getElementById('progressBarInspect').style.background = 'red';
                             }
                         }
