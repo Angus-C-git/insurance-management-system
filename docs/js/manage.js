@@ -336,9 +336,9 @@ function inspect(claimID) {
         console.log("Rejected");
         document.getElementById('contLoadingBarInspect').style.width = '110%';
         document.getElementById('contLoadingBarInspect').style.background = '#D50000';
-        document.getElementById('1').style.background = '#D50000';
-        document.getElementById('2').style.background = '#D50000';
-        document.getElementById('3').style.background = '#D50000';
+        //document.getElementById('1').style.background = '#D50000';
+        //document.getElementById('2').style.background = '#D50000';
+        //document.getElementById('3').style.background = '#D50000';
     }
 
     let date = claim.claimDate.toDate();
