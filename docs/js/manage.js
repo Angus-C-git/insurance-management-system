@@ -34,6 +34,18 @@ function fetchClaimsStaff() {
                         let claimId = claim.id;
 
                         let currentProgress = 25;
+
+                        //TODO check progress
+                        if (claimObj.status === "Accepted"){
+                            currentProgress = 120;
+                            document.getElementById('loadingBarInspect').style.background = 'lawngreen';
+                        }
+
+                        if (claimObj.status === "Rejected"){
+                            currentProgress = 120;
+                            document.getElementById('loadingBarInspect').style.background = 'red';
+                        }
+
                         //console.log(claimObj.additionalInfo);
                         document.getElementById('claimsInjectPoint').innerHTML +=
                             "<div class='tm-col tm-col-span'>" +
@@ -104,8 +116,20 @@ function fetchClaimsUser() {
                 let claimDate = claimObj.claimDate.toDate();
 
                 let claimId = claim.id;
+                let currentProgress = 25; //120% = full, 60 = mid
 
-                let currentProgress = 15;
+                //TODO check progress
+                if (claimObj.status === "Accepted"){
+                    currentProgress = 120;
+                    document.getElementById('loadingBarInspect').style.background = 'lawngreen';
+                }
+
+                if (claimObj.status === "Rejected"){
+                    currentProgress = 120;
+                    document.getElementById('loadingBarInspect').style.background = 'red';
+                }
+
+
                 //onload="this.width=screenWidth;"
                 document.getElementById('claimsInjectPoint').innerHTML +=
                     "<div class='tm-col tm-col-span'>" +
@@ -128,7 +152,7 @@ function fetchClaimsUser() {
                     "</div>" +
                     "</div>" +
                     "</div>" +
-                                    "<td class='std ra id'>" + /*claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes()*/ moment(claimDate).format('DD/MM/YYYY h:mm a') + " </td>" +//TODO
+                                    "<td class='std ra id'>" + moment(claimDate).format('DD/MM/YYYY h:mm a') + " </td>" +
                                 "</tr><tr></tr><tr>" +
                                     "<td colspan='3' rowspan='2' class='centerRow name'>" + claimObj.fullName + "</td>" +
                                 "</tr><tr>" +
@@ -220,6 +244,9 @@ function inspect(claimID) {
     let span = document.getElementsByClassName("close")[0];
 
     modal.style.display = "block";
+
+    //TODO increase progress bar on page and db
+
 
     //ADD MODAL CONTENT
 
