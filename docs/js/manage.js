@@ -304,6 +304,7 @@ function inspect(claimID) {
                         console.log("User =>", user.id);
                         searchRoot.doc(user.id).collection('claims').get().then(function (claims) {
                             claims.forEach(function (claim) {
+                                console.log("Claim =>", claim.id);
                                 if (claim.id === currentRecordID){
                                     console.log("record located => ", claim.id);
                                     console.log("writing status...");
