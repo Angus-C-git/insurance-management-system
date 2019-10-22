@@ -63,8 +63,8 @@ function fetchClaimsStaff() {
                     "<div class='checkpoint'></div>" +
                     "<div class='checkpoint'></div>" +
                     "</div>" +
-                    "<div class='progressBar red' style='margin-top: -20px; width:" + currentProgress + "%'>" +
-                    "<div class='contLoadingBar'>" +
+                    "<div class='progressBar' style='margin-top: -20px; width:" + currentProgress + "%'>" +
+                    "<div class='contLoadingBar red'>" +
                     "<div class='checkpoint'></div>" +
                     "<div class='checkpoint'></div>" +
                     "<div class='checkpoint'></div>" +
