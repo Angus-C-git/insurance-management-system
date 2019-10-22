@@ -28,7 +28,7 @@ function fetchClaimsStaff() {
                     searchRoot.doc(doc.id).collection('claims').doc(claim.id).get().then(function (claimData) {
                         let claimObjPre = claimData.data();
                         let outcomeObj = claimObjPre.outcome;
-                        console.log(claimObjPre);
+                        console.log(claimObjPre, outcomeObj);
                         let claimObj = claimObjPre.claim;
                         let claimDate = claimObj.claimDate.toDate();
 
@@ -40,13 +40,13 @@ function fetchClaimsStaff() {
                         if (outcomeObj.status === "Accepted"){
                             console.log("Accepted");
                             currentProgress = 120;
-                            document.getElementById('loadingBarInspect').style.background = 'lawngreen';
+                            //document.getElementById('loadingBarInspect').style.background = 'lawngreen';
                         }
 
                         if (outcomeObj.status === "Rejected"){
                             console.log("Rejected");
                             currentProgress = 120;
-                            document.getElementById('loadingBarInspect').style.background = 'red';
+                            //document.getElementById('progressBarInspect').style.background = 'red';
                         }
 
                         //console.log(claimObj.additionalInfo);
@@ -63,7 +63,7 @@ function fetchClaimsStaff() {
                     "<div class='checkpoint'></div>" +
                     "<div class='checkpoint'></div>" +
                     "</div>" +
-                    "<div class='progressBar' style='margin-top: -20px; width:" + currentProgress + "%'>" +
+                    "<div class='progressBar red' style='margin-top: -20px; width:" + currentProgress + "%'>" +
                     "<div class='contLoadingBar'>" +
                     "<div class='checkpoint'></div>" +
                     "<div class='checkpoint'></div>" +

@@ -849,3 +849,7 @@ input[type="checkbox"]:focus {
   background-color: #ccc;
   color: black;
 }
+
+.red {
+  background: darkred;
+}
