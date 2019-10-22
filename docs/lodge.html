@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!--<link rel="stylesheet" href="css/materialize.min.css">-->
+    <link rel="stylesheet" href="css/materialize.min.css">
     <link rel="stylesheet" href="css/basics.css">
     <link rel="stylesheet" href="css/login.css">
 
@@ -186,6 +186,7 @@
         checkAuthState('yes');
 
         $( document ).ready(function() {
+            $('select').formSelect();
             console.log( "ready!" );
             let hider = setInterval(hide, 1000);
             function hide(){
