@@ -128,9 +128,10 @@ function fetchClaimsUser() {
         searchRoot.collection('claims').get().then(function (data) {
             data.forEach(function (claim) {
                 //console.log(claim.data());
+                let claimRoute = claim.data();
                 let claimObj = claim.data().claim;
                 let claimDate = claimObj.claimDate.toDate();
-                let outcomeObj = claim.data().outcome;
+
                 let claimId = claim.id;
 
                 let currentProgress = 25; //120% = full, 60 = mid
@@ -139,13 +140,13 @@ function fetchClaimsUser() {
 
 
                 //TODO check progress
-                if (outcomeObj.outcome !== undefined){
+                if (claimRoute.outcome !== undefined){
+                    let outcomeObj = claim.data().outcome;
 
                     if (outcomeObj.status === "Accepted"){
                         console.log("Accepted");
                         currentProgress = 120;
                         colorVal = 'rgb(0, 166, 90)'
-
                     }
 
                     if (outcomeObj.status === "Rejected"){
