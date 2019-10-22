@@ -37,6 +37,7 @@ function fetchClaimsStaff() {
                         let claimId = claim.id;
 
                         let currentProgress = 25;
+                        colorVal = 'lawngreen';
 
 
                         //TODO check progress
@@ -46,6 +47,7 @@ function fetchClaimsStaff() {
                             if (outcomeObj.status === "Accepted"){
                                 console.log("Accepted");
                                 currentProgress = 120;
+                                colorVal = 'lawngreen'
 
                                 //document.getElementById('loadingBarInspect').style.background = 'lawngreen';
                             }
