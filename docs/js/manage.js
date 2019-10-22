@@ -344,11 +344,11 @@ function inspect(claimID) {
     let date = claim.claimDate.toDate();
 
     document.getElementById('caseNumber').innerHTML = recordID;
-    document.getElementById('lodgedDate').innerHTML = moment(date).format('MM/DD/YYYY h:mm a');
+    document.getElementById('lodgedDate').innerHTML = moment(date).format('DD/MM/YYYY h:mm a');
     document.getElementById('claimType').innerHTML = claim.type[0].toUpperCase() + claim.type.slice(1, ) + ' Insurance Claim';
     document.getElementById('name').innerHTML = claim.fullName;
     document.getElementById('email').innerHTML = claim.email;
-    document.getElementById('incidentDate').innerHTML = claim.occurrenceDate;
+    document.getElementById('incidentDate').innerHTML = moment(claim.occurrenceDate).format('DD/MM/YYYY');
     document.getElementById('addressOne').innerHTML = claim.mailingAddress1;
     document.getElementById('addressTwo').innerHTML = claim.mailingAddress2;
     document.getElementById('city').innerHTML = claim.city;

@@ -10,11 +10,15 @@
     <link rel="stylesheet" href="css/basics.css">
     <link rel="stylesheet" href="css/tooplate-infinite-loop.css" />
 
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
+
     <script src="js/auth.js"></script>
 
 </head>
 <body class="background body">
-<div id="loader"></div>
+<div id="hider" class="hider">
 <div class="navBar">
         <span class="navSpanLogo">
             <img src="img/AllInsureDarkTheme.png" alt="logoAllInsure" class="Logo"/>
@@ -25,7 +29,6 @@
             <li class="navLi navRadRight"><a id="loginRedirect" href="login.html" class="navHREF"><button id="logButton" class="navButton">Sign Up/Login</button></a></li>
         </span>
 </div>
-<br/>
 <br/>
 <br/>
 <br/>
@@ -48,6 +51,7 @@
     </ul>
     </div>
 </section>
+<br/>
 <footer>
     <div class="footer">
         <span>
@@ -59,5 +63,21 @@
         </span>
     </div>
 </footer>
+</div>
+<div id="loader"></div>
+<script src="js/jquery-3.2.1.slim.min.js"></script>
+<script>
+    checkAuthState();
+
+    $( document ).ready(function() {
+        console.log( "ready!" );
+        let hider = setInterval(hide, 2000);
+        function hide(){
+            document.getElementById('loader').classList.add('hider');
+            document.getElementById('hider').classList.remove('hider');
+            clearInterval(hider);
+        }
+    });
+</script>
 </body>
 </html>
