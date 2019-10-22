@@ -27,6 +27,7 @@ function fetchClaimsStaff() {
                     //console.log(claim.id);
                     searchRoot.doc(doc.id).collection('claims').doc(claim.id).get().then(function (claimData) {
                         let claimObjPre = claimData.data();
+                        let outcomeObj = claimObjPre.outcome;
                         console.log(claimObjPre);
                         let claimObj = claimObjPre.claim;
                         let claimDate = claimObj.claimDate.toDate();
@@ -36,12 +37,14 @@ function fetchClaimsStaff() {
                         let currentProgress = 25;
 
                         //TODO check progress
-                        if (claimObj.status === "Accepted"){
+                        if (outcomeObj.status === "Accepted"){
+                            console.log("Accepted");
                             currentProgress = 120;
                             document.getElementById('loadingBarInspect').style.background = 'lawngreen';
                         }
 
-                        if (claimObj.status === "Rejected"){
+                        if (outcomeObj.status === "Rejected"){
+                            console.log("Rejected");
                             currentProgress = 120;
                             document.getElementById('loadingBarInspect').style.background = 'red';
                         }
@@ -114,17 +117,17 @@ function fetchClaimsUser() {
                 //console.log(claim.data());
                 let claimObj = claim.data().claim;
                 let claimDate = claimObj.claimDate.toDate();
-
+                let outcomeObj = claim.data().outcome;
                 let claimId = claim.id;
                 let currentProgress = 25; //120% = full, 60 = mid
 
                 //TODO check progress
-                if (claimObj.status === "Accepted"){
+                if (outcomeObj.status === "Accepted"){
                     currentProgress = 120;
                     document.getElementById('loadingBarInspect').style.background = 'lawngreen';
                 }
 
-                if (claimObj.status === "Rejected"){
+                if (outcomeObj.status === "Rejected"){
                     currentProgress = 120;
                     document.getElementById('loadingBarInspect').style.background = 'red';
                 }
