@@ -47,20 +47,19 @@ function fetchClaimsStaff() {
                             if (outcomeObj.status === "Accepted"){
                                 console.log("Accepted");
                                 currentProgress = 120;
-                                colorVal = 'rgb(0, 166, 90)'
-
-                                //document.getElementById('loadingBarInspect').style.background = 'lawngreen';
+                                colorVal = 'rgb(0, 166, 90)';
                             }
 
                             if (outcomeObj.status === "Rejected"){
                                 console.log("Rejected");
                                 currentProgress = 120;
                                 colorVal = '#D50000';
-                                //document.getElementById('progressBarInspect').style.background = 'red';
                             }
                         }
 
-                        //TODO add viewed check
+                        if (claimObj.status === "Viewed"){
+                            currentProgress = 60;
+                        }
 
                         //console.log(claimObj.additionalInfo);
                         document.getElementById('claimsInjectPoint').innerHTML +=
@@ -140,23 +139,24 @@ function fetchClaimsUser() {
 
 
                 //TODO check progress
-                if (claimObjPre.outcome !== undefined){
-                    let outcomeObj = claimObjPre.outcome;
+                if (outcomeObj.outcome !== undefined){
 
                     if (outcomeObj.status === "Accepted"){
                         console.log("Accepted");
                         currentProgress = 120;
                         colorVal = 'rgb(0, 166, 90)'
 
-                        //document.getElementById('loadingBarInspect').style.background = 'lawngreen';
                     }
 
                     if (outcomeObj.status === "Rejected"){
                         console.log("Rejected");
                         currentProgress = 120;
                         colorVal = '#D50000';
-                        //document.getElementById('progressBarInspect').style.background = 'red';
                     }
+                }
+
+                if (claimObj.status === "Viewed"){
+                    currentProgress = 60;
                 }
 
 
@@ -309,7 +309,7 @@ function inspect(claimID) {
                                     console.log("writing status...");
                                     searchRoot.doc(user.id).collection('claims').doc(claim.id).set({
                                         claim: {
-                                            status: "Rejected"
+                                            status: "Viewed"
                                         }
                                     }, { merge: true })
                                 }
