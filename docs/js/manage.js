@@ -60,6 +60,7 @@ function fetchClaimsStaff() {
                             }
                         }
 
+                        //TODO add viewed check
 
                         //console.log(claimObj.additionalInfo);
                         document.getElementById('claimsInjectPoint').innerHTML +=
@@ -118,6 +119,7 @@ function fetchClaimsStaff() {
 
 function fetchClaimsUser() {
     document.getElementById('claimsInjectPoint').innerHTML = "";
+    let colorVal = 'rgb(0, 166, 90)';
 
     firebase.auth().onAuthStateChanged(function(user) {
         console.log("User UID: ", user.uid);
@@ -131,17 +133,30 @@ function fetchClaimsUser() {
                 let claimDate = claimObj.claimDate.toDate();
                 let outcomeObj = claim.data().outcome;
                 let claimId = claim.id;
+
                 let currentProgress = 25; //120% = full, 60 = mid
 
-                //TODO check progress
-                if (outcomeObj.status === "Accepted"){
-                    currentProgress = 120;
-                    document.getElementById('loadingBarInspect').style.background = 'lawngreen';
-                }
+                colorVal = 'rgb(0, 166, 90)';
 
-                if (outcomeObj.status === "Rejected"){
-                    currentProgress = 120;
-                    document.getElementById('loadingBarInspect').style.background = 'red';
+
+                //TODO check progress
+                if (claimObjPre.outcome !== undefined){
+                    let outcomeObj = claimObjPre.outcome;
+
+                    if (outcomeObj.status === "Accepted"){
+                        console.log("Accepted");
+                        currentProgress = 120;
+                        colorVal = 'rgb(0, 166, 90)'
+
+                        //document.getElementById('loadingBarInspect').style.background = 'lawngreen';
+                    }
+
+                    if (outcomeObj.status === "Rejected"){
+                        console.log("Rejected");
+                        currentProgress = 120;
+                        colorVal = '#D50000';
+                        //document.getElementById('progressBarInspect').style.background = 'red';
+                    }
                 }
 
 
@@ -160,10 +175,10 @@ function fetchClaimsUser() {
                     "<div class='checkpoint'></div>" +
                     "</div>" +
                     "<div class='progressBar' style='width:" + currentProgress + "%'>" +
-                    "<div class='contLoadingBar'>" +
-                    "<div class='checkpoint'></div>" +
-                    "<div class='checkpoint'></div>" +
-                    "<div class='checkpoint'></div>" +
+                    "<div class='contLoadingBar' style='background: " + colorVal + "'>" +
+                    "<div class='checkpoint' style='background: " + colorVal + "'></div>" +
+                    "<div class='checkpoint' style='background: " + colorVal + "'></div>" +
+                    "<div class='checkpoint' style='background: " + colorVal + "'></div>" +
                     "</div>" +
                     "</div>" +
                     "</div>" +
@@ -270,10 +285,58 @@ function inspect(claimID) {
 
     let claimStatusObj = claimStatus[recordID];
 
-    /*
-     let claimObj = claim.data().claim;
-                let claimDate = claimObj.claimDate.toDate();
-     */
+    if (claim.status === "Pending"){
+        console.log("Pending");
+        document.getElementById('progressBarIns').style.width = '60%';
+
+        console.log("Updating status...");
+        //TODO
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in
+
+                //PERFORM DB SEARCH FOR CLAIM ID
+
+                let searchRoot = db.collection('users');
+
+                searchRoot.get().then(function (data) {
+                    data.forEach(function (user) {
+                        console.log("User =>", user.id);
+                        searchRoot.doc(user.id).collection('claims').get().then(function (claims) {
+                            claims.forEach(function (claim) {
+                                if (claim.id === currentRecordID){
+                                    console.log("record located => ", claim.id);
+                                    console.log("writing status...");
+                                    searchRoot.doc(user.id).collection('claims').doc(claim.id).set({
+                                        claim: {
+                                            status: "Rejected"
+                                        }
+                                    }, { merge: true })
+                                }
+                            })
+                        })
+                    })
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            }
+        });
+
+    }
+
+    if (claim.status === "Accepted"){
+        console.log("Accepted");
+        document.getElementById('progressBarIns').style.width = '120%';
+    }
+
+    if (claim.status === "Rejected"){
+        console.log("Rejected");
+        document.getElementById('progressBarIns').style.width = '120%';
+        document.getElementById('progressBarIns').style.background = '#D50000';
+        document.getElementById('1').style.background = '#D50000';
+        document.getElementById('2').style.background = '#D50000';
+        document.getElementById('3').style.background = '#D50000';
+    }
 
     let date = claim.claimDate.toDate();
 
@@ -421,6 +484,8 @@ function rejectClaim() {
                                     outcome: {
                                         status: "Rejected",
                                         reason: reason
+                                    }, claim: {
+                                        status: "Rejected"
                                     }
                                 }, { merge: true })
                             }
@@ -462,6 +527,8 @@ function resolveClaim() {
                                         estimatedCover: estimatedCover,
                                         excess: excess,
                                         approvalDate: approvalDate
+                                    }, claim: {
+                                        status: "Accepted"
                                     }
                                 }, { merge: true })
                             }
