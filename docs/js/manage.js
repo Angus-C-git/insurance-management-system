@@ -58,7 +58,7 @@ function fetchClaimsStaff() {
                         }
 
                         if (claimObj.status === "Viewed"){
-                            currentProgress = 60;
+                            currentProgress = 75;
                         }
 
                         //console.log(claimObj.additionalInfo);
@@ -157,7 +157,7 @@ function fetchClaimsUser() {
                 }
 
                 if (claimObj.status === "Viewed"){
-                    currentProgress = 60;
+                    currentProgress = 75;
                 }
 
 
@@ -289,7 +289,7 @@ function inspect(claimID) {
 
     if (claim.status === "Pending"){
         console.log("Pending");
-        document.getElementById('progressBarIns').style.width = '60%';
+        document.getElementById('contLoadingBarInspect').style.width = '60%';
 
         console.log("Updating status...");
         //TODO
@@ -334,8 +334,8 @@ function inspect(claimID) {
 
     if (claim.status === "Rejected"){
         console.log("Rejected");
-        document.getElementById('progressBarIns').style.width = '120%';
-        document.getElementById('progressBarIns').style.background = '#D50000';
+        document.getElementById('contLoadingBarInspect').style.width = '120%';
+        document.getElementById('contLoadingBarInspect').style.background = '#D50000';
         document.getElementById('1').style.background = '#D50000';
         document.getElementById('2').style.background = '#D50000';
         document.getElementById('3').style.background = '#D50000';
