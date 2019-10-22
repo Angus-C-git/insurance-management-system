@@ -17,6 +17,8 @@ function fetchClaimsStaff() {
 
     let searchRoot = db.collection('users');
 
+    let colorVal = 'rgb(0, 166, 90)';
+
     console.log("attempting fetch staff...");
     searchRoot.get().then(function (querySnapshot) {
         console.log("query fired..");        // FOR LOOP #1
@@ -27,13 +29,38 @@ function fetchClaimsStaff() {
                     //console.log(claim.id);
                     searchRoot.doc(doc.id).collection('claims').doc(claim.id).get().then(function (claimData) {
                         let claimObjPre = claimData.data();
-                        console.log(claimObjPre);
+
+                        //console.log(claimObjPre, outcomeObj);
                         let claimObj = claimObjPre.claim;
                         let claimDate = claimObj.claimDate.toDate();
 
                         let claimId = claim.id;
 
                         let currentProgress = 25;
+                        colorVal = 'rgb(0, 166, 90)';
+
+
+                        //TODO check progress
+                        if (claimObjPre.outcome !== undefined){
+                            let outcomeObj = claimObjPre.outcome;
+
+                            if (outcomeObj.status === "Accepted"){
+                                console.log("Accepted");
+                                currentProgress = 120;
+                                colorVal = 'rgb(0, 166, 90)'
+
+                                //document.getElementById('loadingBarInspect').style.background = 'lawngreen';
+                            }
+
+                            if (outcomeObj.status === "Rejected"){
+                                console.log("Rejected");
+                                currentProgress = 120;
+                                colorVal = '#D50000';
+                                //document.getElementById('progressBarInspect').style.background = 'red';
+                            }
+                        }
+
+
                         //console.log(claimObj.additionalInfo);
                         document.getElementById('claimsInjectPoint').innerHTML +=
                             "<div class='tm-col tm-col-span'>" +
@@ -49,10 +76,10 @@ function fetchClaimsStaff() {
                     "<div class='checkpoint'></div>" +
                     "</div>" +
                     "<div class='progressBar' style='margin-top: -20px; width:" + currentProgress + "%'>" +
-                    "<div class='contLoadingBar'>" +
-                    "<div class='checkpoint'></div>" +
-                    "<div class='checkpoint'></div>" +
-                    "<div class='checkpoint'></div>" +
+                    "<div class='contLoadingBar' style='background: " + colorVal + "'>" +
+                    "<div class='checkpoint' style='background: " + colorVal + "'></div>" +
+                    "<div class='checkpoint' style='background: " + colorVal + "'></div>" +
+                    "<div class='checkpoint' style='background: " + colorVal + "'></div>" +
                     "</div>" +
                     "</div>" +
                     "</div>" +
@@ -102,10 +129,22 @@ function fetchClaimsUser() {
                 //console.log(claim.data());
                 let claimObj = claim.data().claim;
                 let claimDate = claimObj.claimDate.toDate();
-
+                let outcomeObj = claim.data().outcome;
                 let claimId = claim.id;
+                let currentProgress = 25; //120% = full, 60 = mid
 
-                let currentProgress = 15;
+                //TODO check progress
+                if (outcomeObj.status === "Accepted"){
+                    currentProgress = 120;
+                    document.getElementById('loadingBarInspect').style.background = 'lawngreen';
+                }
+
+                if (outcomeObj.status === "Rejected"){
+                    currentProgress = 120;
+                    document.getElementById('loadingBarInspect').style.background = 'red';
+                }
+
+
                 //onload="this.width=screenWidth;"
                 document.getElementById('claimsInjectPoint').innerHTML +=
                     "<div class='tm-col tm-col-span'>" +
@@ -128,7 +167,7 @@ function fetchClaimsUser() {
                     "</div>" +
                     "</div>" +
                     "</div>" +
-                                    "<td class='std ra id'>" + /*claimDate.getDate() + "/" + claimDate.getMonth() + "/" + claimDate.getFullYear() + "   " + claimDate.getHours() + ":" + claimDate.getMinutes()*/ moment(claimDate).format('DD/MM/YYYY h:mm a') + " </td>" +//TODO
+                                    "<td class='std ra id'>" + moment(claimDate).format('DD/MM/YYYY h:mm a') + " </td>" +
                                 "</tr><tr></tr><tr>" +
                                     "<td colspan='3' rowspan='2' class='centerRow name'>" + claimObj.fullName + "</td>" +
                                 "</tr><tr>" +
@@ -220,6 +259,9 @@ function inspect(claimID) {
     let span = document.getElementsByClassName("close")[0];
 
     modal.style.display = "block";
+
+    //TODO increase progress bar on page and db
+
 
     //ADD MODAL CONTENT
 

@@ -750,7 +750,7 @@ input[type="checkbox"]:focus {
   margin-top: -20px;
 }
 .progressBarInspect .contLoadingBarInspect {
-  background: lawngreen;
+  background: rgb(0, 166, 90);
   height: 15px;
   margin-top: 10px;
   width: 446px;
@@ -768,7 +768,7 @@ input[type="checkbox"]:focus {
   margin-left: -3px;
 }
 .progressBarInspect .checkpointInspect {
-  background: lawngreen;
+  background: rgb(0, 166, 90);
   width: 36px;
   height: 36px;
   margin-left: -10px;
@@ -849,3 +849,4 @@ input[type="checkbox"]:focus {
   background-color: #ccc;
   color: black;
 }
+
