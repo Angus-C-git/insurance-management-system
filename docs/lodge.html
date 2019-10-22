@@ -187,10 +187,14 @@
 
         $( document ).ready(function() {
             console.log( "ready!" );
-            $('select').formSelect();
-            document.getElementById('loader').classList.add('hider');
-            document.getElementById('hider').classList.remove('hider');
+            let hider = setInterval(hide, 2000);
+            function hide(){
+                document.getElementById('loader').classList.add('hider');
+                document.getElementById('hider').classList.remove('hider');
+                clearInterval(hider);
+            }
         });
+        //$('select').formSelect();
     </script>
 </body>
 

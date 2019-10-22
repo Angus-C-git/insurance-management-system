@@ -18,6 +18,7 @@
     <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
 
     <script src="js/signUp.js"></script>
+    <script src="js/auth.js"></script>
 
 </head>
 
@@ -96,8 +97,12 @@
         $( document ).ready(function() {
             $('select').formSelect();
             console.log( "ready!" );
-            document.getElementById('loader').classList.add('hider');
-            document.getElementById('hider').classList.remove('hider');
+            let hider = setInterval(hide, 2000);
+            function hide(){
+                document.getElementById('loader').classList.add('hider');
+                document.getElementById('hider').classList.remove('hider');
+                clearInterval(hider);
+            }
         });
     </script>
 </body>
