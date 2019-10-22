@@ -81,7 +81,7 @@
 .footer {
     background-color: black;
     color: #38B !important;
-    position: absolute !important;
+    position: absolute;
     left:0; right: 0; bottom: 0;
     width:100%;
     font-size: 18px !important;

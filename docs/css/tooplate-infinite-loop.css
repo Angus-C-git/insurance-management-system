@@ -513,8 +513,8 @@ figure.effect-honey:hover h2 i {
 
 #contact {
   color: white;
-  background-color: #001828;
-  background-image: url(../img/infinite-loop-03.jpg);
+  /*background-color: #001828;*/
+  background-image: url('../img/CustomerCareService.jpg');
   background-position: center;
   background-repeat: no-repeat;
   /*min-height: 980px;
@@ -699,7 +699,8 @@ p {
 
 #actualBody {
   padding-top: 6%;
-  padding-left: 5%;
+  padding-left: 15%;
+  color: white;
 }
 
 .background {
@@ -732,4 +733,28 @@ p {
 .tandcContainer {
   width: 225%;
   margin-left: -800px;
+}
+
+.btn-large {
+  padding: 0 77px;
+  border-radius: 5px;
+  background-color: black;
+  text-transform: capitalize;
+  font-size: 1rem;
+}
+
+.btn-large:hover,
+.btn-large:focus {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.btn-large-white {
+  background-color: white;
+  color: black;
+  font-size: 1.1rem;
+}
+.btn-large-white:hover,
+.btn-large-white:focus {
+  background-color: #ccc;
+  color: black;
 }

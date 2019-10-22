@@ -14,7 +14,8 @@
 
     <script src="js/auth.js"></script>
 </head>
-<body id="contact" style="background-image: url('img/contactus.jpg')">
+<body id="">
+<div id="contact">
 <span id="hider" class="hider">
 <div class="navBar">
         <span class="navSpanLogo">
@@ -28,10 +29,15 @@
 </div>
 <br/>
 <br/>
-<!-- Contact -->
-<section id="actualBody" class="tm-section-pad-top tm-parallax-2" style="margin-left: -200px;">
+    <br/>
+    <br/>
+    <br/>
 
-    <div class="container tm-container-contact">
+
+<!-- Contact -->
+<section id="actualBody" class="tm-section-pad-top tm-parallax-2" style="margin-left: -200px; background-color: rgba(0, 0, 0, 0.5); border-radius: 10px; width: 85%; height: 750px; margin-left: 100px;">
+
+    <div class="container tm-container-contact" style="margin-left: -100px;">
 
         <div class="row">
 
@@ -47,7 +53,7 @@
                     <input id="name" name="name" type="text" placeholder="Your Name" class="tm-input" required style="width:200%;"/>
                     <input id="email" name="email" type="email" placeholder="Your Email" class="tm-input" required style="width:200%;"/>
                     <textarea id="message" name="message" rows="8" placeholder="Message" class="tm-input" required style="width:200%;"></textarea>
-                    <button type="submit" class="btn tm-btn-submit" style="margin-left: 350px;">Submit</button>
+                    <button type="submit" class="waves-effect btn-large btn-large-white px-4 black-text rounded-0" style="margin-left: 350px; margin-top: 50px;">Submit</button>
                 </form>
             </div>
 
@@ -57,8 +63,12 @@
     </div>
 </section>
 </span>
+</div>
+<div id="loader" style="margin-left: 50%; margin-top: 15%;display: none;"></div>
+<br/>
+<br/>
 <footer>
-    <div class="footer">
+    <div class="footer" style="position: relative;">
         <span>
             <li class="footerTD"><a href="about.html" class="">About</a></li>
             <li class="footerTD"><a href="contactus.html" class="">Enquiries</a></li>
@@ -68,8 +78,6 @@
         </span>
     </div>
 </footer>
-
-<div id="loader" style="margin-left: 50%; margin-top: 15%;display: none;"></div>
 </body>
 
 <script src="js/jquery-3.2.1.slim.min.js"></script>
