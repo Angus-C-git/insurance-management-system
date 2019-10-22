@@ -140,8 +140,7 @@ ul.tm-home-list:not(.browser-default) {
 }
 
 #register {
-  padding-top: 180px;
-  background-image: url(../img/input-bg-01.jpg);
+  background-image: url(../img/signupBG.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 30%;
