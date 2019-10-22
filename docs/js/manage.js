@@ -27,8 +27,8 @@ function fetchClaimsStaff() {
                     //console.log(claim.id);
                     searchRoot.doc(doc.id).collection('claims').doc(claim.id).get().then(function (claimData) {
                         let claimObjPre = claimData.data();
-                        let outcomeObj = claimObjPre.outcome;
-                        console.log(claimObjPre, outcomeObj);
+
+                        //console.log(claimObjPre, outcomeObj);
                         let claimObj = claimObjPre.claim;
                         let claimDate = claimObj.claimDate.toDate();
 
@@ -37,17 +37,22 @@ function fetchClaimsStaff() {
                         let currentProgress = 25;
 
                         //TODO check progress
-                        if (outcomeObj.status === "Accepted"){
-                            console.log("Accepted");
-                            currentProgress = 120;
-                            //document.getElementById('loadingBarInspect').style.background = 'lawngreen';
+                        if (claimObjPre.outcome !== undefined){
+                            let outcomeObj = claimObjPre.outcome;
+
+                            if (outcomeObj.status === "Accepted"){
+                                console.log("Accepted");
+                                currentProgress = 120;
+                                //document.getElementById('loadingBarInspect').style.background = 'lawngreen';
+                            }
+
+                            if (outcomeObj.status === "Rejected"){
+                                console.log("Rejected");
+                                currentProgress = 120;
+                                //document.getElementById('progressBarInspect').style.background = 'red';
+                            }
                         }
 
-                        if (outcomeObj.status === "Rejected"){
-                            console.log("Rejected");
-                            currentProgress = 120;
-                            //document.getElementById('progressBarInspect').style.background = 'red';
-                        }
 
                         //console.log(claimObj.additionalInfo);
                         document.getElementById('claimsInjectPoint').innerHTML +=
