@@ -17,6 +17,8 @@ function fetchClaimsStaff() {
 
     let searchRoot = db.collection('users');
 
+    let colorVal = 'lawngreen';
+
     console.log("attempting fetch staff...");
     searchRoot.get().then(function (querySnapshot) {
         console.log("query fired..");        // FOR LOOP #1
@@ -35,7 +37,7 @@ function fetchClaimsStaff() {
                         let claimId = claim.id;
 
                         let currentProgress = 25;
-                        let colorVal = 'lawngreen';
+
 
                         //TODO check progress
                         if (claimObjPre.outcome !== undefined){
