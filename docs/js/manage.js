@@ -74,10 +74,10 @@ function fetchClaimsStaff() {
                     "<div class='checkpoint'></div>" +
                     "</div>" +
                     "<div class='progressBar' style='margin-top: -20px; width:" + currentProgress + "%'>" +
-                    "<div class='contLoadingBar' style='background: colorVal;'>" +
-                    "<div class='checkpoint'></div>" +
-                    "<div class='checkpoint'></div>" +
-                    "<div class='checkpoint'></div>" +
+                    "<div class='contLoadingBar' style='background: " + colorVal + "'>" +
+                    "<div class='checkpoint' style='background: " + colorVal + "'></div>" +
+                    "<div class='checkpoint' style='background: " + colorVal + "'></div>" +
+                    "<div class='checkpoint' style='background: " + colorVal + "'></div>" +
                     "</div>" +
                     "</div>" +
                     "</div>" +
