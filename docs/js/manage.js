@@ -35,6 +35,7 @@ function fetchClaimsStaff() {
                         let claimId = claim.id;
 
                         let currentProgress = 25;
+                        let colorVal = 'lawngreen';
 
                         //TODO check progress
                         if (claimObjPre.outcome !== undefined){
@@ -43,12 +44,14 @@ function fetchClaimsStaff() {
                             if (outcomeObj.status === "Accepted"){
                                 console.log("Accepted");
                                 currentProgress = 120;
+
                                 //document.getElementById('loadingBarInspect').style.background = 'lawngreen';
                             }
 
                             if (outcomeObj.status === "Rejected"){
                                 console.log("Rejected");
                                 currentProgress = 120;
+                                colorVal = 'red';
                                 //document.getElementById('progressBarInspect').style.background = 'red';
                             }
                         }
@@ -69,7 +72,7 @@ function fetchClaimsStaff() {
                     "<div class='checkpoint'></div>" +
                     "</div>" +
                     "<div class='progressBar' style='margin-top: -20px; width:" + currentProgress + "%'>" +
-                    "<div class='contLoadingBar red'>" +
+                    "<div class='contLoadingBar' style='background: colorVal;'>" +
                     "<div class='checkpoint'></div>" +
                     "<div class='checkpoint'></div>" +
                     "<div class='checkpoint'></div>" +
