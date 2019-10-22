@@ -329,12 +329,12 @@ function inspect(claimID) {
 
     if (claim.status === "Accepted"){
         console.log("Accepted");
-        document.getElementById('progressBarIns').style.width = '120%';
+        document.getElementById('progressBarIns').style.width = '110%';
     }
 
     if (claim.status === "Rejected"){
         console.log("Rejected");
-        document.getElementById('contLoadingBarInspect').style.width = '120%';
+        document.getElementById('contLoadingBarInspect').style.width = '110%';
         document.getElementById('contLoadingBarInspect').style.background = '#D50000';
         document.getElementById('1').style.background = '#D50000';
         document.getElementById('2').style.background = '#D50000';
