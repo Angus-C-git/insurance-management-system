@@ -4,5 +4,7 @@ A baisc form submission and mangment system with a user and admin work flow mode
 Tech Stack:
 
 -HTML + CSS -> Bootstrap
--JS 
+
+-JS
+
 -Firebase backend
